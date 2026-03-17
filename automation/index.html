@@ -1,97 +1,206 @@
-<!-- AUTOMATION SECTION -->
-<section id="automation">
-  <h2>Automation & Scripting</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation | Chaithanyaa</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Consolas, monospace;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+    }
+
+    nav {
+      text-align: center;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #58a6ff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #58a6ff;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 5px;
+    }
+
+    .card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      margin-top: 20px;
+    }
+
+    .project {
+      margin-bottom: 25px;
+    }
+
+    .impact {
+      margin-top: 30px;
+      background: #0f172a;
+      padding: 20px;
+      border-left: 4px solid #58a6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Automation & Scripting Portfolio</h1>
+  <p>PowerShell | VMware | Infrastructure Automation</p>
+</header>
+
+<nav>
+  <a href="/">⬅ Back to Home</a>
+</nav>
+
+<section>
+
+  <div class="card">
+    <p>
+      Developed and implemented multiple automation solutions with a focus on reducing manual intervention,
+      improving efficiency, and ensuring consistent infrastructure operations. These solutions were introduced
+      as new initiatives, bringing measurable improvements in execution speed, accuracy, and system reliability.
+    </p>
+  </div>
+
+  <h2>Automation Projects</h2>
 
   <div class="card">
 
-    <p>
-      Designed and developed automation solutions using PowerShell with a strong focus on reducing manual effort,
-      improving operational efficiency, and accelerating infrastructure management tasks. These implementations
-      were introduced as new initiatives within the environment, significantly optimizing day-to-day operations
-      and enabling faster, more reliable execution of critical activities.
-    </p>
+    <div class="project">
+      <b>ESXi Patching Report Automation</b>
+      <p>Automated patch compliance tracking across clusters with scheduled email reporting.</p>
+    </div>
 
-    <ul>
+    <div class="project">
+      <b>Infrastructure Inventory Script</b>
+      <p>Collected VM, CPU, memory, and storage data across environment for audits.</p>
+    </div>
 
-      <li>
-        <b>ESXi Patching Report Automation</b> – Eliminated manual tracking by building an automated solution
-        to collect patch compliance data and deliver scheduled email reports to stakeholders.
-      </li>
+    <div class="project">
+      <b>Memory Expansion Tool</b>
+      <p>Analyzed VM usage and recommended optimal memory allocation.</p>
+    </div>
 
-      <li>
-        <b>Infrastructure Inventory Automation</b> – Reduced audit time by creating scripts to gather VM,
-        CPU, memory, and storage details across environments in a single execution.
-      </li>
+    <div class="project">
+      <b>Bulk ESXi NTP Enablement</b>
+      <p>Configured NTP across multiple ESXi hosts in a single execution.</p>
+    </div>
 
-      <li>
-        <b>Memory Expansion Recommendation Tool</b> – Improved resource utilization by developing a logic-driven
-        tool to suggest optimal memory allocation based on VM usage patterns.
-      </li>
+    <div class="project">
+      <b>Windows Patch Compliance Reporting</b>
+      <p>Generated centralized patch status reports for servers.</p>
+    </div>
 
-      <li>
-        <b>Bulk ESXi NTP Configuration</b> – Ensured time synchronization compliance by automating NTP
-        enablement across multiple ESXi hosts in one go.
-      </li>
+    <div class="project">
+      <b>VM Snapshot Cleanup Tool</b>
+      <p>Identified stale snapshots and improved storage performance.</p>
+    </div>
 
-      <li>
-        <b>Windows Patch Compliance Reporting</b> – Streamlined patch tracking by generating consolidated
-        reports across servers, reducing manual verification effort.
-      </li>
+    <div class="project">
+      <b>Disk Monitoring Script</b>
+      <p>Tracked disk utilization and prevented outages with proactive alerts.</p>
+    </div>
 
-      <li>
-        <b>VM Snapshot Cleanup Automation</b> – Minimized storage overhead and improved performance by identifying
-        outdated snapshots and simplifying cleanup processes.
-      </li>
+    <div class="project">
+      <b>Server Health Check Automation</b>
+      <p>Validated CPU, memory, disk, and service health across systems.</p>
+    </div>
 
-      <li>
-        <b>Disk Utilization Monitoring Tool</b> – Prevented potential outages by proactively monitoring disk usage
-        and identifying threshold breaches.
-      </li>
+    <div class="project">
+      <b>HPE FLB Auto Update (Gen10)</b>
+      <p>Automated firmware updates ensuring hardware consistency.</p>
+    </div>
 
-      <li>
-        <b>Server Health Check Automation</b> – Reduced troubleshooting time by building a script to validate
-        CPU, memory, disk, and service health across multiple systems.
-      </li>
+    <div class="project">
+      <b>CTX Migration Tool (GUI)</b>
+      <p>Developed GUI-based migration tool with email notifications on success/failure.</p>
+    </div>
 
-      <li>
-        <b>HPE Firmware (FLB) Auto Update for Gen10 Servers</b> – Automated firmware baseline updates,
-        ensuring consistency and reducing manual intervention in hardware maintenance.
-      </li>
+    <div class="project">
+      <b>OCI Vault Password Retrieval</b>
+      <p>Securely fetched credentials from OCI Vault, eliminating manual handling.</p>
+    </div>
 
-      <li>
-        <b>CTX Migration Tool (GUI + Email Notifications)</b> – Developed a user-friendly GUI tool with automated
-        email notifications for migration success/failure, improving visibility and operational control.
-      </li>
+    <div class="project">
+      <b>ESXi Hardware & VMware Tools Automation</b>
+      <p>Built PowerShell GUI tool to manage hardware and VMware Tools lifecycle.</p>
+    </div>
 
-      <li>
-        <b>OCI Vault Password Retrieval</b> – Strengthened security by automating password retrieval from vault,
-        eliminating manual credential exposure.
-      </li>
+    <div class="project">
+      <b>HA Failure Analysis Script</b>
+      <p>Identified exact timestamps of VM failover for faster RCA.</p>
+    </div>
 
-      <li>
-        <b>ESXi Hardware & VMware Tools Automation (GUI)</b> – Simplified administrative operations by creating
-        a GUI-based tool to manage hardware status and VMware Tools lifecycle.
-      </li>
+    <div class="project">
+      <b>WWN Finder from vCenter</b>
+      <p>Extracted WWN details directly from vCenter environment.</p>
+    </div>
 
-      <li>
-        <b>HA Failure Analysis Script</b> – Enabled faster incident resolution by identifying precise timestamps
-        of VM failover events for accurate root cause analysis.
-      </li>
+    <!-- EXTRA STRONG POINTS -->
+    <div class="project">
+      <b>Log Collection Automation</b>
+      <p>Centralized log collection across servers for faster troubleshooting.</p>
+    </div>
 
-      <li>
-        <b>WWN Extraction from vCenter</b> – Reduced dependency on manual checks by automating WWN retrieval
-        directly from vCenter.
-      </li>
+    <div class="project">
+      <b>Service Restart Automation</b>
+      <p>Automated service recovery during failures to reduce downtime.</p>
+    </div>
 
-    </ul>
+    <div class="project">
+      <b>Backup Validation Script</b>
+      <p>Validated backup jobs and ensured recovery readiness.</p>
+    </div>
 
-    <p>
-      <b>Impact & Business Value:</b> These automation initiatives significantly reduced manual operational effort,
-      improved execution speed of critical tasks, and enhanced overall infrastructure reliability. By introducing
-      new automation practices, operational efficiency was increased, human errors were minimized, and response
-      time during incidents was drastically improved. The solutions contributed to better resource utilization,
-      improved compliance tracking, and scalable infrastructure management aligned with modern automation-driven practices.
-    </p>
+    <div class="project">
+      <b>User Access Audit Tool</b>
+      <p>Generated access reports to support compliance and security audits.</p>
+    </div>
 
   </div>
+
+  <div class="impact">
+    <h2>Impact & Business Value</h2>
+    <p>
+      These automation solutions significantly reduced manual workload and improved operational efficiency
+      across infrastructure management. Tasks that previously required hours of manual effort were executed
+      within minutes, ensuring faster delivery and reduced dependency on human intervention.
+    </p>
+
+    <p>
+      By introducing automation as a new initiative, system reliability improved, human errors were minimized,
+      and response times during incidents were drastically reduced. These solutions contributed to better
+      resource utilization, enhanced compliance tracking, and scalable infrastructure operations aligned with
+      modern automation practices.
+    </p>
+  </div>
+
 </section>
+
+</body>
+</html>
