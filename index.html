@@ -14,25 +14,26 @@
     }
 
     header {
-      padding: 40px;
       text-align: center;
-      background-color: #161b22;
+      padding: 60px 20px;
+      background: #161b22;
       border-bottom: 1px solid #30363d;
     }
 
     header h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 40px;
       color: #58a6ff;
     }
 
     header p {
       color: #8b949e;
+      font-size: 18px;
     }
 
     nav {
       text-align: center;
-      padding: 10px;
+      padding: 15px;
       background: #0d1117;
     }
 
@@ -40,6 +41,7 @@
       color: #58a6ff;
       margin: 0 15px;
       text-decoration: none;
+      font-size: 16px;
     }
 
     nav a:hover {
@@ -47,27 +49,31 @@
     }
 
     section {
-      padding: 40px;
       max-width: 900px;
       margin: auto;
-    }
-
-    h2 {
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 5px;
-      color: #58a6ff;
+      padding: 40px 20px;
     }
 
     .card {
       background: #161b22;
       padding: 20px;
-      margin-top: 20px;
       border-radius: 8px;
       border: 1px solid #30363d;
+      margin-top: 20px;
     }
 
-    ul {
-      padding-left: 20px;
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #238636;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn:hover {
+      background: #2ea043;
     }
 
     footer {
@@ -76,19 +82,6 @@
       border-top: 1px solid #30363d;
       color: #8b949e;
     }
-
-    .tag {
-      display: inline-block;
-      background: #21262d;
-      padding: 6px 12px;
-      margin: 5px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    .highlight {
-      color: #58a6ff;
-    }
   </style>
 </head>
 
@@ -96,102 +89,47 @@
 
 <header>
   <h1>Chaithanyaa</h1>
-  <p>System Administrator | Virtualization | Infrastructure | Cloud Enthusiast</p>
+  <p>System Administrator | Virtualization | Infrastructure</p>
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#learning">Learning</a>
-  <a href="#contact">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="experience.html">Experience</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<section id="about">
-  <h2>About Me</h2>
+<section>
+  <h2>Welcome</h2>
+
   <div class="card">
     <p>
-      I am a <span class="highlight">System Administrator</span> with hands-on experience in managing
-      enterprise infrastructure, virtualization platforms, and hardware environments.
-      I specialize in troubleshooting complex infrastructure issues and maintaining system reliability.
+      I am a System Administrator specializing in VMware, ESXi, KVM, OLVM,
+      and enterprise infrastructure management. I focus on system reliability,
+      patching, and troubleshooting critical environments.
     </p>
+
+    <a href="experience.html" class="btn">View My Experience</a>
   </div>
-</section>
 
-<section id="skills">
-  <h2>Technical Skills</h2>
   <div class="card">
-
-    <h3>Virtualization</h3>
-    <span class="tag">VMware</span>
-    <span class="tag">ESXi</span>
-    <span class="tag">KVM</span>
-    <span class="tag">OLVM</span>
-
-    <h3>Operating Systems</h3>
-    <span class="tag">Windows Server</span>
-    <span class="tag">Linux</span>
-
-    <h3>Infrastructure & Hardware</h3>
-    <span class="tag">HPE Hardware</span>
-    <span class="tag">Server Management</span>
-
-    <h3>Monitoring & Maintenance</h3>
-    <span class="tag">Infrastructure Monitoring</span>
-    <span class="tag">ESXi Patching</span>
-    <span class="tag">Windows Patching</span>
-
     <h3>Core Skills</h3>
-    <span class="tag">Troubleshooting</span>
-    <span class="tag">Incident Handling</span>
-
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <ul>
-      <li>🔧 Managed and patched ESXi environments</li>
-      <li>🖥️ Windows server patching and maintenance</li>
-      <li>📊 Infrastructure monitoring and alert handling</li>
-      <li>⚙️ Troubleshooting enterprise infra issues</li>
-    </ul>
-  </div>
-</section>
-
-<section id="learning">
-  <h2>Currently Learning</h2>
-  <div class="card">
     <p>
-      Exploring <span class="highlight">AI tools</span> and automation to enhance system administration workflows
-      and improve operational efficiency.
+      VMware | ESXi | KVM | OLVM | Windows Server | HPE Hardware |
+      Monitoring | Patching | Troubleshooting
     </p>
   </div>
-</section>
 
-<section id="contact">
-  <h2>Contact</h2>
   <div class="card">
-    <p>Email: your@email.com</p>
-    <p>GitHub: https://github.com/chaithanyaap</p>
-  </div>
-</section>
-
-<section id="journey">
-  <h2>My GitHub Website Journey</h2>
-  <div class="card">
-    <ol>
-      <li>Created a repository on GitHub</li>
-      <li>Added an <span class="highlight">index.html</span> file</li>
-      <li>Enabled GitHub Pages</li>
-      <li>Published my website for free 🚀</li>
-    </ol>
+    <h3>Current Focus</h3>
+    <p>
+      Exploring AI tools to enhance automation and infrastructure management.
+    </p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Chaithanyaa | System Administrator Portfolio</p>
+  <p>© 2026 Chaithanyaa | Hosted on GitHub Pages</p>
 </footer>
 
 </body>
