@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chaithanyaa | System Administrator</title>
 
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -21,15 +24,10 @@
       border-bottom: 1px solid #30363d;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 40px;
+    #terminal {
+      font-size: 28px;
       color: #58a6ff;
-    }
-
-    header p {
-      color: #8b949e;
-      font-size: 18px;
+      white-space: pre-line;
     }
 
     nav {
@@ -44,7 +42,6 @@
       color: #58a6ff;
       margin: 0 15px;
       text-decoration: none;
-      font-size: 16px;
     }
 
     nav a:hover {
@@ -80,6 +77,16 @@
       font-size: 14px;
     }
 
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #238636;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -92,15 +99,14 @@
 <body>
 
 <header>
-  <h1>Chaithanyaa</h1>
-  <p>System Administrator | Virtualization | Infrastructure</p>
+  <h1 id="terminal"></h1>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
+  <a href="#dashboard">Dashboard</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -108,9 +114,8 @@
   <h2>About Me</h2>
   <div class="card">
     <p>
-      System Administrator with hands-on experience in managing enterprise
-      infrastructure, virtualization platforms, and hardware environments.
-      Strong in troubleshooting and maintaining high system availability.
+      System Administrator with hands-on experience in virtualization,
+      infrastructure management, and troubleshooting enterprise systems.
     </p>
   </div>
 </section>
@@ -137,35 +142,63 @@
     <ul>
       <li>Managed VMware & ESXi environments</li>
       <li>Performed Windows and ESXi patching</li>
-      <li>Worked on HPE server hardware</li>
-      <li>Handled infrastructure monitoring and alerts</li>
+      <li>Worked with HPE hardware</li>
+      <li>Handled infrastructure monitoring</li>
       <li>Troubleshot enterprise-level issues</li>
     </ul>
   </div>
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
+<section id="dashboard">
+  <h2>System Dashboard</h2>
   <div class="card">
-    <ul>
-      <li>🔧 ESXi Patch Management</li>
-      <li>📊 Infrastructure Monitoring Setup</li>
-      <li>☁️ Virtual Machine Deployment</li>
-    </ul>
+    <p>🟢 Server Status: Running</p>
+    <p>💾 CPU Usage: 35%</p>
+    <p>📊 Memory Usage: 60%</p>
+    <p>🌐 Network: Stable</p>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
+
+    <p>
+      <i class="fab fa-github"></i>
+      <a href="https://github.com/chaithanyaap" target="_blank">GitHub</a>
+    </p>
+
+    <p>
+      <i class="fab fa-linkedin"></i>
+      <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+    </p>
+
     <p>Email: your@email.com</p>
-    <p>GitHub: https://github.com/chaithanyaap</p>
+
+    <a href="resume.pdf" download class="btn">Download Resume</a>
+
   </div>
 </section>
 
 <footer>
   <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
+
+<!-- Terminal Animation Script -->
+<script>
+  const text = "$ whoami\nChaithanyaa - System Administrator";
+  let i = 0;
+
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("terminal").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+
+  window.onload = typeEffect;
+</script>
 
 </body>
 </html>
