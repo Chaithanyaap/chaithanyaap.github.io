@@ -19,7 +19,7 @@
     overflow-x: hidden;
   }
 
-  /* Animated "GUI" lighting effect */
+  /* Terminal glow overlay */
   body::before {
     content: '';
     position: fixed;
@@ -43,14 +43,41 @@
     background: #161b22;
     border-bottom: 1px solid #30363d;
     box-shadow: 0 0 20px rgba(88,166,255,0.2);
+    position: relative;
   }
 
-  /* Terminal glow effect */
+  /* Terminal text effect */
   #terminal {
     font-size: 28px;
     color: #58a6ff;
     white-space: pre-line;
     text-shadow: 0 0 5px #58a6ff, 0 0 10px #58a6ff, 0 0 20px #58a6ff;
+  }
+
+  /* Status lights */
+  .status-lights {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .light {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 5px rgba(88,166,255,0.5);
+    animation: blink 1.5s infinite;
+  }
+
+  .light.active { background: #2ea043; }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 0.3; }
+    25%, 75% { opacity: 1; }
   }
 
   nav {
@@ -127,21 +154,38 @@
     border-top: 1px solid #30363d;
     color: #8b949e;
   }
+
+  /* Neural network background */
+  canvas#network {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
 </head>
 
 <body>
 
+<canvas id="network"></canvas>
+
 <header>
   <h1 id="terminal"></h1>
+  <div class="status-lights">
+    <div class="light active"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+  </div>
 </header>
 
 <nav>
   <a href="/">Home</a>
-  <a href="/skill/">Skill</a>
-  <a href="/experience/">Experience</a>
-  <a href="/automation/">Automation</a>
-  <a href="/contact/">Contact</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#automation">Automation</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
@@ -150,7 +194,8 @@
     <p>
       System Administrator with hands-on experience in virtualization,
       infrastructure management, and troubleshooting enterprise systems.
-      Passionate about learning new technologies including AI tools.
+      Passionate about learning new technologies and maintaining secure,
+      efficient IT environments.
     </p>
   </div>
 </section>
@@ -159,11 +204,10 @@
   <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
 
-<!-- Terminal Animation -->
+<!-- Terminal Typing Effect -->
 <script>
-const text = "$ whoami\nChaithanyaa - System Administrator";
+const text = "$ whoami\nChaithanyaa - System Administrator\n$ status: Active";
 let i = 0;
-
 function typeEffect() {
   const terminal = document.getElementById("terminal");
   if (i < text.length) {
@@ -172,8 +216,55 @@ function typeEffect() {
     setTimeout(typeEffect, 50);
   }
 }
-
 window.onload = typeEffect;
+</script>
+
+<!-- Neural Network Background -->
+<script>
+const canvas = document.getElementById('network');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const nodes = [];
+for(let i=0;i<50;i++){
+  nodes.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5)/2, vy: (Math.random()-0.5)/2});
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  nodes.forEach(n=>{
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,3,0,Math.PI*2);
+    ctx.fillStyle = '#58a6ff';
+    ctx.fill();
+
+    nodes.forEach(m=>{
+      const dx = n.x-m.x;
+      const dy = n.y-m.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.beginPath();
+        ctx.moveTo(n.x,n.y);
+        ctx.lineTo(m.x,m.y);
+        ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)+')';
+        ctx.stroke();
+      }
+    })
+
+    n.x+=n.vx;
+    n.y+=n.vy;
+    if(n.x<0||n.x>canvas.width) n.vx*=-1;
+    if(n.y<0||n.y>canvas.height) n.vy*=-1;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+window.addEventListener('resize',()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
