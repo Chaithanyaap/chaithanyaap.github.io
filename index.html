@@ -11,6 +11,7 @@
       font-family: Consolas, monospace;
       background-color: #0d1117;
       color: #c9d1d9;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -35,6 +36,8 @@
       text-align: center;
       padding: 15px;
       background: #0d1117;
+      position: sticky;
+      top: 0;
     }
 
     nav a {
@@ -51,7 +54,13 @@
     section {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 5px;
+      color: #58a6ff;
     }
 
     .card {
@@ -62,18 +71,13 @@
       margin-top: 20px;
     }
 
-    .btn {
+    .tag {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: #238636;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-
-    .btn:hover {
-      background: #2ea043;
+      background: #21262d;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 5px;
+      font-size: 14px;
     }
 
     footer {
@@ -93,43 +97,74 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="experience.html">Experience</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Contact</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<section>
-  <h2>Welcome</h2>
-
+<section id="about">
+  <h2>About Me</h2>
   <div class="card">
     <p>
-      I am a System Administrator specializing in VMware, ESXi, KVM, OLVM,
-      and enterprise infrastructure management. I focus on system reliability,
-      patching, and troubleshooting critical environments.
-    </p>
-
-    <a href="experience.html" class="btn">View My Experience</a>
-  </div>
-
-  <div class="card">
-    <h3>Core Skills</h3>
-    <p>
-      VMware | ESXi | KVM | OLVM | Windows Server | HPE Hardware |
-      Monitoring | Patching | Troubleshooting
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Current Focus</h3>
-    <p>
-      Exploring AI tools to enhance automation and infrastructure management.
+      System Administrator with hands-on experience in managing enterprise
+      infrastructure, virtualization platforms, and hardware environments.
+      Strong in troubleshooting and maintaining high system availability.
     </p>
   </div>
 </section>
 
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="card">
+    <span class="tag">VMware</span>
+    <span class="tag">ESXi</span>
+    <span class="tag">KVM</span>
+    <span class="tag">OLVM</span>
+    <span class="tag">Windows Server</span>
+    <span class="tag">Linux</span>
+    <span class="tag">HPE Hardware</span>
+    <span class="tag">Monitoring</span>
+    <span class="tag">Patching</span>
+    <span class="tag">Troubleshooting</span>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="card">
+    <ul>
+      <li>Managed VMware & ESXi environments</li>
+      <li>Performed Windows and ESXi patching</li>
+      <li>Worked on HPE server hardware</li>
+      <li>Handled infrastructure monitoring and alerts</li>
+      <li>Troubleshot enterprise-level issues</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <ul>
+      <li>🔧 ESXi Patch Management</li>
+      <li>📊 Infrastructure Monitoring Setup</li>
+      <li>☁️ Virtual Machine Deployment</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: your@email.com</p>
+    <p>GitHub: https://github.com/chaithanyaap</p>
+  </div>
+</section>
+
 <footer>
-  <p>© 2026 Chaithanyaa | Hosted on GitHub Pages</p>
+  <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
 
 </body>
