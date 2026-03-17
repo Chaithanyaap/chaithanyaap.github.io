@@ -3,81 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaithanyaa | Portfolio</title>
+  <title>Chaithanyaa | System Administrator</title>
 
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: white;
+      font-family: Consolas, monospace;
+      background-color: #0d1117;
+      color: #c9d1d9;
     }
 
     header {
+      padding: 40px;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      background-color: #161b22;
+      border-bottom: 1px solid #30363d;
     }
 
     header h1 {
       margin: 0;
-      font-size: 40px;
+      font-size: 36px;
+      color: #58a6ff;
     }
 
     header p {
-      font-size: 18px;
-      opacity: 0.9;
+      color: #8b949e;
     }
 
     nav {
       text-align: center;
-      background: #111827;
       padding: 10px;
+      background: #0d1117;
     }
 
     nav a {
-      color: #9ca3af;
-      margin: 10px;
+      color: #58a6ff;
+      margin: 0 15px;
       text-decoration: none;
-      font-size: 16px;
     }
 
     nav a:hover {
-      color: white;
+      text-decoration: underline;
     }
 
     section {
-      padding: 50px 20px;
+      padding: 40px;
       max-width: 900px;
       margin: auto;
     }
 
+    h2 {
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 5px;
+      color: #58a6ff;
+    }
+
     .card {
-      background: #1f2933;
+      background: #161b22;
       padding: 20px;
-      border-radius: 12px;
       margin-top: 20px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #020617;
+      border-top: 1px solid #30363d;
+      color: #8b949e;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #21262d;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 5px;
       font-size: 14px;
-      color: #9ca3af;
     }
 
-    button {
-      padding: 10px 20px;
-      border: none;
-      background: #3b82f6;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #2563eb;
+    .highlight {
+      color: #58a6ff;
     }
   </style>
 </head>
@@ -85,28 +95,78 @@
 <body>
 
 <header>
-  <h1>Hi, I'm Chaithanyaa 👋</h1>
-  <p>Welcome to my website hosted on GitHub</p>
+  <h1>Chaithanyaa</h1>
+  <p>System Administrator | Virtualization | Infrastructure | Cloud Enthusiast</p>
 </header>
 
 <nav>
   <a href="#about">About</a>
+  <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
+  <a href="#learning">Learning</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
-    <p>I am learning web development and building cool projects.</p>
+    <p>
+      I am a <span class="highlight">System Administrator</span> with hands-on experience in managing
+      enterprise infrastructure, virtualization platforms, and hardware environments.
+      I specialize in troubleshooting complex infrastructure issues and maintaining system reliability.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="card">
+
+    <h3>Virtualization</h3>
+    <span class="tag">VMware</span>
+    <span class="tag">ESXi</span>
+    <span class="tag">KVM</span>
+    <span class="tag">OLVM</span>
+
+    <h3>Operating Systems</h3>
+    <span class="tag">Windows Server</span>
+    <span class="tag">Linux</span>
+
+    <h3>Infrastructure & Hardware</h3>
+    <span class="tag">HPE Hardware</span>
+    <span class="tag">Server Management</span>
+
+    <h3>Monitoring & Maintenance</h3>
+    <span class="tag">Infrastructure Monitoring</span>
+    <span class="tag">ESXi Patching</span>
+    <span class="tag">Windows Patching</span>
+
+    <h3>Core Skills</h3>
+    <span class="tag">Troubleshooting</span>
+    <span class="tag">Incident Handling</span>
+
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
   <div class="card">
-    <p>🚀 Project 1 - My first website</p>
-    <p>📱 Project 2 - Coming soon...</p>
+    <ul>
+      <li>🔧 Managed and patched ESXi environments</li>
+      <li>🖥️ Windows server patching and maintenance</li>
+      <li>📊 Infrastructure monitoring and alert handling</li>
+      <li>⚙️ Troubleshooting enterprise infra issues</li>
+    </ul>
+  </div>
+</section>
+
+<section id="learning">
+  <h2>Currently Learning</h2>
+  <div class="card">
+    <p>
+      Exploring <span class="highlight">AI tools</span> and automation to enhance system administration workflows
+      and improve operational efficiency.
+    </p>
   </div>
 </section>
 
@@ -114,12 +174,24 @@
   <h2>Contact</h2>
   <div class="card">
     <p>Email: your@email.com</p>
-    <button onclick="alert('Thanks for visiting!')">Say Hi</button>
+    <p>GitHub: https://github.com/chaithanyaap</p>
+  </div>
+</section>
+
+<section id="journey">
+  <h2>My GitHub Website Journey</h2>
+  <div class="card">
+    <ol>
+      <li>Created a repository on GitHub</li>
+      <li>Added an <span class="highlight">index.html</span> file</li>
+      <li>Enabled GitHub Pages</li>
+      <li>Published my website for free 🚀</li>
+    </ol>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Chaithanyaa | Built with HTML</p>
+  <p>© 2026 Chaithanyaa | System Administrator Portfolio</p>
 </footer>
 
 </body>
