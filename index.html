@@ -1,92 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaithanyaa | System Administrator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaithanyaa | System Administrator</title>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Consolas, monospace;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      scroll-behavior: smooth;
-    }
+<style>
+  /* ===== BODY + BACKGROUND ===== */
+  body {
+    margin: 0;
+    font-family: Consolas, "Courier New", monospace;
+    background: radial-gradient(circle at 20% 20%, #161b22, #0d1117 80%);
+    color: #c9d1d9;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #161b22;
-      border-bottom: 1px solid #30363d;
-    }
+  /* Animated "GUI" lighting effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(88,166,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+    animation: moveLight 20s linear infinite;
+  }
 
-    #terminal {
-      font-size: 28px;
-      color: #58a6ff;
-      white-space: pre-line;
-    }
+  @keyframes moveLight {
+    0% { transform: rotate(0deg) translateX(0) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(0) rotate(-360deg); }
+  }
 
-    nav {
-      text-align: center;
-      padding: 15px;
-      background: #0d1117;
-      position: sticky;
-      top: 0;
-      border-bottom: 1px solid #30363d;
-    }
+  header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    box-shadow: 0 0 20px rgba(88,166,255,0.2);
+  }
 
-    nav a {
-      color: #58a6ff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  /* Terminal glow effect */
+  #terminal {
+    font-size: 28px;
+    color: #58a6ff;
+    white-space: pre-line;
+    text-shadow: 0 0 5px #58a6ff, 0 0 10px #58a6ff, 0 0 20px #58a6ff;
+  }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+  nav {
+    text-align: center;
+    padding: 15px;
+    background: #0d1117;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #30363d;
+    z-index: 100;
+  }
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+  nav a {
+    color: #58a6ff;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
 
-    h2 {
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 5px;
-      color: #58a6ff;
-    }
+  nav a:hover {
+    background: rgba(88,166,255,0.2);
+    box-shadow: 0 0 10px rgba(88,166,255,0.5);
+  }
 
-    .card {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #30363d;
-      margin-top: 20px;
-    }
+  section {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px;
+  }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: #238636;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
+  h2 {
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 5px;
+    color: #58a6ff;
+    text-shadow: 0 0 3px #58a6ff;
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #30363d;
-      color: #8b949e;
-    }
-  </style>
+  .card {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(88,166,255,0.1);
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 25px rgba(88,166,255,0.2);
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #238636;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: #2ea043;
+    box-shadow: 0 0 10px #2ea043;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+  }
+</style>
 </head>
 
 <body>
@@ -95,16 +136,14 @@
   <h1 id="terminal"></h1>
 </header>
 
-<!-- ✅ UPDATED NAVIGATION -->
 <nav>
   <a href="/">Home</a>
-  <a href="/skill/">skill</a>
+  <a href="/skill/">Skill</a>
   <a href="/experience/">Experience</a>
-  <a href="/automation/">automation</a>
+  <a href="/automation/">Automation</a>
   <a href="/contact/">Contact</a>
 </nav>
 
-<!-- HOME / ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
@@ -116,25 +155,25 @@
   </div>
 </section>
 
-
 <footer>
   <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
 
 <!-- Terminal Animation -->
 <script>
-  const text = "$ whoami\nChaithanyaa - System Administrator";
-  let i = 0;
+const text = "$ whoami\nChaithanyaa - System Administrator";
+let i = 0;
 
-  function typeEffect() {
-    if (i < text.length) {
-      document.getElementById("terminal").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeEffect, 50);
-    }
+function typeEffect() {
+  const terminal = document.getElementById("terminal");
+  if (i < text.length) {
+    terminal.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 50);
   }
+}
 
-  window.onload = typeEffect;
+window.onload = typeEffect;
 </script>
 
 </body>
