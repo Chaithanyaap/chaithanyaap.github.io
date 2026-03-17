@@ -36,12 +36,14 @@
       background: #0d1117;
       position: sticky;
       top: 0;
+      border-bottom: 1px solid #30363d;
     }
 
     nav a {
       color: #58a6ff;
       margin: 0 15px;
       text-decoration: none;
+      font-weight: bold;
     }
 
     nav a:hover {
@@ -66,15 +68,6 @@
       border-radius: 8px;
       border: 1px solid #30363d;
       margin-top: 20px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #21262d;
-      padding: 6px 12px;
-      margin: 5px;
-      border-radius: 5px;
-      font-size: 14px;
     }
 
     .btn {
@@ -102,81 +95,49 @@
   <h1 id="terminal"></h1>
 </header>
 
+<!-- ✅ UPDATED NAVIGATION -->
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
+  <a href="/">Home</a>
+  <a href="/skills/">Skills</a>
+  <a href="/experience/">Experience</a>
   <a href="#dashboard">Dashboard</a>
-  <a href="#contact">Contact</a>
+  <a href="/contact/">Contact</a>
 </nav>
 
+<!-- HOME / ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
     <p>
       System Administrator with hands-on experience in virtualization,
       infrastructure management, and troubleshooting enterprise systems.
+      Passionate about learning new technologies including AI tools.
     </p>
   </div>
 </section>
 
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <div class="card">
-    <span class="tag">VMware</span>
-    <span class="tag">ESXi</span>
-    <span class="tag">KVM</span>
-    <span class="tag">OLVM</span>
-    <span class="tag">Windows Server</span>
-    <span class="tag">Linux</span>
-    <span class="tag">HPE Hardware</span>
-    <span class="tag">Monitoring</span>
-    <span class="tag">Patching</span>
-    <span class="tag">Troubleshooting</span>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="card">
-    <ul>
-      <li>Managed VMware & ESXi environments</li>
-      <li>Performed Windows and ESXi patching</li>
-      <li>Worked with HPE hardware</li>
-      <li>Handled infrastructure monitoring</li>
-      <li>Troubleshot enterprise-level issues</li>
-    </ul>
-  </div>
-</section>
-
+<!-- DASHBOARD (keep only on main page) -->
 <section id="dashboard">
   <h2>System Dashboard</h2>
   <div class="card">
-    <p>🟢 Server Status: Running</p>
-    <p>💾 CPU Usage: 35%</p>
-    <p>📊 Memory Usage: 60%</p>
-    <p>🌐 Network: Stable</p>
+    <p>🟢 Server Status: Healthy</p>
+    <p>💾 CPU Usage: 42%</p>
+    <p>📊 Memory Usage: 68%</p>
+    <p>🌐 Network Latency: 12ms</p>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+<!-- QUICK LINKS -->
+<section>
+  <h2>Quick Access</h2>
   <div class="card">
+    <p>Use navigation above to explore:</p>
 
-    <p>
-      <i class="fab fa-github"></i>
-      <a href="https://github.com/chaithanyaap" target="_blank">GitHub</a>
-    </p>
-
-    <p>
-      <i class="fab fa-linkedin"></i>
-      <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-    </p>
-
-    <p>Email: your@email.com</p>
-
-    <a href="resume.pdf" download class="btn">Download Resume</a>
-
+    <ul>
+      <li><a href="/skills/">View Technical Skills</a></li>
+      <li><a href="/experience/">View Experience</a></li>
+      <li><a href="/contact/">Contact Me</a></li>
+    </ul>
   </div>
 </section>
 
@@ -184,7 +145,7 @@
   <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
 
-<!-- Terminal Animation Script -->
+<!-- Terminal Animation -->
 <script>
   const text = "$ whoami\nChaithanyaa - System Administrator";
   let i = 0;
