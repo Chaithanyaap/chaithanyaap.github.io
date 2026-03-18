@@ -5,168 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chaithanyaa | System Administrator</title>
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  /* ===== BODY + BACKGROUND ===== */
   body {
     margin: 0;
     font-family: Consolas, "Courier New", monospace;
-    background: radial-gradient(circle at 20% 20%, #161b22, #0d1117 80%);
+    background: #0d1117;
     color: #c9d1d9;
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
 
-  /* Terminal glow overlay */
-  body::before {
-    content: '';
+  /* Background neural nodes */
+  canvas#network {
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(88,166,255,0.15) 0%, transparent 70%);
-    pointer-events: none;
-    animation: moveLight 20s linear infinite;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
   }
 
-  @keyframes moveLight {
-    0% { transform: rotate(0deg) translateX(0) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(0) rotate(-360deg); }
-  }
-
+  /* Header console frame */
   header {
-    text-align: center;
-    padding: 60px 20px;
-    background: #161b22;
-    border-bottom: 1px solid #30363d;
-    box-shadow: 0 0 20px rgba(88,166,255,0.2);
     position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    background: #161b22;
+    box-shadow: 0 0 20px rgba(88,166,255,0.2);
+    text-align: left;
+    z-index: 1;
   }
 
-  /* Terminal text effect */
+  /* Terminal text */
   #terminal {
-    font-size: 28px;
+    font-size: 22px;
     color: #58a6ff;
     white-space: pre-line;
-    text-shadow: 0 0 5px #58a6ff, 0 0 10px #58a6ff, 0 0 20px #58a6ff;
+    text-shadow: 0 0 5px #58a6ff, 0 0 10px #58a6ff;
+    margin-bottom: 10px;
   }
 
-  /* Status lights */
+  /* Status lights inside console */
   .status-lights {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 15px;
+    right: 20px;
     display: flex;
-    gap: 10px;
+    gap: 8px;
   }
-
   .light {
-    width: 14px;
-    height: 14px;
+    width: 14px; height: 14px;
     border-radius: 50%;
-    background: #0d1117;
     border: 1px solid #30363d;
+    background: #0d1117;
     box-shadow: 0 0 5px rgba(88,166,255,0.5);
     animation: blink 1.5s infinite;
   }
-
   .light.active { background: #2ea043; }
-
   @keyframes blink {
-    0%, 50%, 100% { opacity: 0.3; }
-    25%, 75% { opacity: 1; }
+    0%,50%,100% {opacity:0.3;}
+    25%,75% {opacity:1;}
   }
 
+  /* Navigation */
   nav {
-    text-align: center;
-    padding: 15px;
-    background: #0d1117;
-    position: sticky;
-    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: rgba(13,17,23,0.9);
+    padding: 12px 0;
+    position: sticky; top: 0;
     border-bottom: 1px solid #30363d;
-    z-index: 100;
+    z-index: 2;
   }
-
   nav a {
     color: #58a6ff;
-    margin: 0 20px;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
     padding: 6px 12px;
     border-radius: 6px;
+    transition: 0.3s;
   }
-
   nav a:hover {
     background: rgba(88,166,255,0.2);
     box-shadow: 0 0 10px rgba(88,166,255,0.5);
   }
 
+  /* Sections */
   section {
     max-width: 900px;
-    margin: auto;
-    padding: 60px 20px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    background: #161b22;
+    box-shadow: 0 0 15px rgba(88,166,255,0.1);
+    z-index: 1;
   }
 
-  h2 {
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 5px;
+  section h2 {
     color: #58a6ff;
     text-shadow: 0 0 3px #58a6ff;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
   }
 
   .card {
-    background: #161b22;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #30363d;
-    margin-top: 20px;
-    box-shadow: 0 0 15px rgba(88,166,255,0.1);
-    transition: 0.3s;
-  }
-
-  .card:hover {
-    box-shadow: 0 0 25px rgba(88,166,255,0.2);
-  }
-
-  .btn {
-    display: inline-block;
+    background: #0d1117;
+    padding: 15px 20px;
     margin-top: 15px;
-    padding: 10px 15px;
-    background: #238636;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 10px rgba(88,166,255,0.1);
     transition: 0.3s;
   }
-
-  .btn:hover {
-    background: #2ea043;
-    box-shadow: 0 0 10px #2ea043;
+  .card:hover {
+    box-shadow: 0 0 20px rgba(88,166,255,0.2);
   }
 
   footer {
     text-align: center;
     padding: 20px;
-    border-top: 1px solid #30363d;
     color: #8b949e;
-  }
-
-  /* Neural network background */
-  canvas#network {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
   }
 </style>
 </head>
-
 <body>
 
 <canvas id="network"></canvas>
@@ -194,8 +161,7 @@
     <p>
       System Administrator with hands-on experience in virtualization,
       infrastructure management, and troubleshooting enterprise systems.
-      Passionate about learning new technologies and maintaining secure,
-      efficient IT environments.
+      Passionate about learning new technologies and maintaining secure IT environments.
     </p>
   </div>
 </section>
@@ -204,45 +170,38 @@
   <p>© 2026 Chaithanyaa | System Administrator</p>
 </footer>
 
-<!-- Terminal Typing Effect -->
 <script>
+// Terminal typing effect
 const text = "$ whoami\nChaithanyaa - System Administrator\n$ status: Active";
-let i = 0;
-function typeEffect() {
-  const terminal = document.getElementById("terminal");
-  if (i < text.length) {
-    terminal.textContent += text.charAt(i);
+let i=0;
+function typeEffect(){
+  const terminal=document.getElementById("terminal");
+  if(i<text.length){
+    terminal.textContent+=text.charAt(i);
     i++;
-    setTimeout(typeEffect, 50);
+    setTimeout(typeEffect,50);
   }
 }
-window.onload = typeEffect;
-</script>
+window.onload=typeEffect;
 
-<!-- Neural Network Background -->
-<script>
-const canvas = document.getElementById('network');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const nodes = [];
+// Neural network background
+const canvas=document.getElementById('network');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const nodes=[];
 for(let i=0;i<50;i++){
-  nodes.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5)/2, vy: (Math.random()-0.5)/2});
+  nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)/2,vy:(Math.random()-0.5)/2});
 }
-
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   nodes.forEach(n=>{
     ctx.beginPath();
     ctx.arc(n.x,n.y,3,0,Math.PI*2);
-    ctx.fillStyle = '#58a6ff';
+    ctx.fillStyle='#58a6ff';
     ctx.fill();
-
     nodes.forEach(m=>{
-      const dx = n.x-m.x;
-      const dy = n.y-m.y;
-      const dist = Math.sqrt(dx*dx+dy*dy);
+      const dx=n.x-m.x,dy=n.y-m.y,dist=Math.sqrt(dx*dx+dy*dy);
       if(dist<120){
         ctx.beginPath();
         ctx.moveTo(n.x,n.y);
@@ -250,20 +209,17 @@ function draw(){
         ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)+')';
         ctx.stroke();
       }
-    })
-
-    n.x+=n.vx;
-    n.y+=n.vy;
+    });
+    n.x+=n.vx;n.y+=n.vy;
     if(n.x<0||n.x>canvas.width) n.vx*=-1;
     if(n.y<0||n.y>canvas.height) n.vy*=-1;
   });
   requestAnimationFrame(draw);
 }
 draw();
-
 window.addEventListener('resize',()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
 });
 </script>
 
