@@ -17,7 +17,6 @@
     overflow-x: hidden;
   }
 
-  /* Background neural nodes */
   canvas#network {
     position: fixed;
     top: 0; left: 0;
@@ -25,30 +24,25 @@
     z-index: 0;
   }
 
-  /* Header console frame */
   header {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 20px 30px;
     border: 1px solid #30363d;
     border-radius: 12px;
     background: #161b22;
     box-shadow: 0 0 20px rgba(88,166,255,0.2);
-    text-align: left;
     z-index: 1;
   }
 
-  /* Terminal text */
   #terminal {
     font-size: 22px;
     color: #58a6ff;
     white-space: pre-line;
-    text-shadow: 0 0 5px #58a6ff, 0 0 10px #58a6ff;
-    margin-bottom: 10px;
+    text-shadow: 0 0 5px #58a6ff;
   }
 
-  /* Status lights inside console */
   .status-lights {
     position: absolute;
     top: 15px;
@@ -56,21 +50,22 @@
     display: flex;
     gap: 8px;
   }
+
   .light {
     width: 14px; height: 14px;
     border-radius: 50%;
     border: 1px solid #30363d;
     background: #0d1117;
-    box-shadow: 0 0 5px rgba(88,166,255,0.5);
     animation: blink 1.5s infinite;
   }
+
   .light.active { background: #2ea043; }
+
   @keyframes blink {
     0%,50%,100% {opacity:0.3;}
     25%,75% {opacity:1;}
   }
 
-  /* Navigation */
   nav {
     display: flex;
     justify-content: center;
@@ -81,6 +76,7 @@
     border-bottom: 1px solid #30363d;
     z-index: 2;
   }
+
   nav a {
     color: #58a6ff;
     text-decoration: none;
@@ -89,12 +85,11 @@
     border-radius: 6px;
     transition: 0.3s;
   }
+
   nav a:hover {
     background: rgba(88,166,255,0.2);
-    box-shadow: 0 0 10px rgba(88,166,255,0.5);
   }
 
-  /* Sections */
   section {
     max-width: 900px;
     margin: 50px auto;
@@ -108,23 +103,20 @@
 
   section h2 {
     color: #58a6ff;
-    text-shadow: 0 0 3px #58a6ff;
     border-bottom: 1px solid #30363d;
     padding-bottom: 6px;
-    margin-bottom: 15px;
   }
 
   .card {
     background: #0d1117;
-    padding: 15px 20px;
+    padding: 15px;
     margin-top: 15px;
     border-radius: 10px;
     border: 1px solid #30363d;
-    box-shadow: 0 0 10px rgba(88,166,255,0.1);
-    transition: 0.3s;
   }
-  .card:hover {
-    box-shadow: 0 0 20px rgba(88,166,255,0.2);
+
+  ul {
+    padding-left: 20px;
   }
 
   footer {
@@ -134,6 +126,7 @@
   }
 </style>
 </head>
+
 <body>
 
 <canvas id="network"></canvas>
@@ -148,22 +141,43 @@
 </header>
 
 <nav>
-  <a href="/">Home</a>
+  <a href="#">Home</a>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
-  <a href="#automation">Automation</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#certifications">Certifications</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About Me</h2>
-  <div class="card">
-    <p>
-      System Administrator with hands-on experience in virtualization,
-      infrastructure management, and troubleshooting enterprise systems.
-      Passionate about learning new technologies and maintaining secure IT environments.
-    </p>
-  </div>
+  <div class="card"><p>Loading...</p></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div id="experience-container"></div>
+</section>
+
+<section id="skills">
+  <h2>Core Skills</h2>
+  <div id="skills-container"></div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div id="education-container"></div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div id="certifications-container"></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div id="contact-container"></div>
 </section>
 
 <footer>
@@ -171,7 +185,7 @@
 </footer>
 
 <script>
-// Terminal typing effect
+// Typing effect
 const text = "$ whoami\nChaithanyaa - System Administrator\n$ status: Active";
 let i=0;
 function typeEffect(){
@@ -179,29 +193,96 @@ function typeEffect(){
   if(i<text.length){
     terminal.textContent+=text.charAt(i);
     i++;
-    setTimeout(typeEffect,50);
+    setTimeout(typeEffect,40);
   }
 }
 window.onload=typeEffect;
 
-// Neural network background
+// Fetch data.json
+fetch('data.json')
+.then(res => res.json())
+.then(data => {
+
+  document.querySelector("#about p").textContent = data.about;
+
+  // Experience
+  data.experience.forEach(job => {
+    const div=document.createElement("div");
+    div.className="card";
+
+    let points = job.points.map(p => `<li>${p}</li>`).join("");
+
+    div.innerHTML=`
+      <h3>${job.role} - ${job.company}</h3>
+      <p><i>${job.duration}</i></p>
+      <ul>${points}</ul>
+    `;
+    document.getElementById("experience-container").appendChild(div);
+  });
+
+  // Skills
+  data.skills.forEach(skill=>{
+    const div=document.createElement("div");
+    div.className="card";
+    div.textContent=skill;
+    document.getElementById("skills-container").appendChild(div);
+  });
+
+  // Education
+  document.getElementById("education-container").innerHTML=`
+    <div class="card">
+      <h3>${data.education.degree}</h3>
+      <p>${data.education.institution}</p>
+      <p>${data.education.duration}</p>
+    </div>
+  `;
+
+  // Certifications
+  data.certifications.forEach(cert=>{
+    const div=document.createElement("div");
+    div.className="card";
+    div.textContent=cert;
+    document.getElementById("certifications-container").appendChild(div);
+  });
+
+  // Contact
+  document.getElementById("contact-container").innerHTML=`
+    <div class="card">
+      <p>📍 ${data.location}</p>
+      <p>📞 ${data.phone}</p>
+      <p>✉️ ${data.email}</p>
+    </div>
+  `;
+});
+
+// Background animation
 const canvas=document.getElementById('network');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
+
 const nodes=[];
 for(let i=0;i<50;i++){
-  nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)/2,vy:(Math.random()-0.5)/2});
+  nodes.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5)/2,
+    vy:(Math.random()-0.5)/2
+  });
 }
+
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
+
   nodes.forEach(n=>{
     ctx.beginPath();
     ctx.arc(n.x,n.y,3,0,Math.PI*2);
     ctx.fillStyle='#58a6ff';
     ctx.fill();
+
     nodes.forEach(m=>{
-      const dx=n.x-m.x,dy=n.y-m.y,dist=Math.sqrt(dx*dx+dy*dy);
+      let dx=n.x-m.x, dy=n.y-m.y;
+      let dist=Math.sqrt(dx*dx+dy*dy);
       if(dist<120){
         ctx.beginPath();
         ctx.moveTo(n.x,n.y);
@@ -210,13 +291,18 @@ function draw(){
         ctx.stroke();
       }
     });
-    n.x+=n.vx;n.y+=n.vy;
+
+    n.x+=n.vx;
+    n.y+=n.vy;
+
     if(n.x<0||n.x>canvas.width) n.vx*=-1;
     if(n.y<0||n.y>canvas.height) n.vy*=-1;
   });
+
   requestAnimationFrame(draw);
 }
 draw();
+
 window.addEventListener('resize',()=>{
   canvas.width=window.innerWidth;
   canvas.height=window.innerHeight;
