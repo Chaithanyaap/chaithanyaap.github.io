@@ -3,131 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chaithanya Kumar | VMware Engineer</title>
+<title>Chaithanya Kumar | Infra Engineer</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial;
-  background: #0d1117;
-  color: #c9d1d9;
+  margin:0;
+  font-family: Consolas, monospace;
+  background:#0d1117;
+  color:#c9d1d9;
+  overflow-x:hidden;
 }
 
+/* BACKGROUND CANVAS */
+canvas {
+  position:fixed;
+  top:0; left:0;
+  z-index:0;
+}
+
+/* HEADER TERMINAL */
 header {
-  text-align: center;
-  padding: 40px;
+  position:relative;
+  max-width:900px;
+  margin:40px auto;
+  padding:25px;
+  border-radius:12px;
+  background:rgba(22,27,34,0.8);
+  backdrop-filter:blur(10px);
+  border:1px solid #30363d;
+  z-index:1;
 }
 
+#terminal {
+  color:#58a6ff;
+  font-size:20px;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  background:#161b22;
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+
+nav a {
+  color:#58a6ff;
+  text-decoration:none;
+}
+
+/* SECTION */
 section {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width:1000px;
+  margin:40px auto;
+  padding:20px;
+  background:rgba(22,27,34,0.7);
+  border-radius:12px;
+  border:1px solid #30363d;
+  backdrop-filter:blur(6px);
+  z-index:1;
+  position:relative;
 }
 
 h2 {
-  color: #58a6ff;
-  border-bottom: 1px solid #30363d;
+  color:#58a6ff;
 }
 
+/* CARD */
 .card {
-  background: #161b22;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
+  margin-top:15px;
+  padding:15px;
+  border-radius:10px;
+  background:#0d1117;
+  border:1px solid #30363d;
+  transition:0.3s;
+}
+.card:hover {
+  box-shadow:0 0 15px #58a6ff55;
+  transform:translateY(-5px);
 }
 
-ul {
-  padding-left: 20px;
-  line-height: 1.6;
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
 }
 
 .badge {
-  display: inline-block;
-  margin: 5px;
-  padding: 8px;
-  background: #21262d;
-  border-radius: 6px;
+  background:#21262d;
+  padding:10px;
+  text-align:center;
+  border-radius:6px;
+}
+
+/* STATS */
+.stats {
+  display:flex;
+  justify-content:space-around;
+  margin-top:20px;
+}
+.stat {
+  text-align:center;
+  color:#58a6ff;
+  font-size:20px;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="bg"></canvas>
+
 <header>
-  <h1 id="name"></h1>
-  <p id="title"></p>
+  <div id="terminal"></div>
+
+  <div class="stats">
+    <div class="stat">50,000+ VMs</div>
+    <div class="stat">6000+ Hosts</div>
+    <div class="stat">99.99% Uptime</div>
+  </div>
 </header>
 
-<section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#automation">Automation</a>
+  <a href="#skills">Skills</a>
+</nav>
+
+<section id="about">
   <h2>About</h2>
-  <div class="card"><p id="about-text"></p></div>
+  <div class="card" id="about"></div>
 </section>
 
-<section>
+<section id="experience">
   <h2>Experience</h2>
-  <div id="experience"></div>
+  <div id="experience-container"></div>
 </section>
 
-<section>
-  <h2>Automation</h2>
-  <div id="automation"></div>
+<section id="automation">
+  <h2>Automation Lab</h2>
+  <div id="automation-container" class="grid"></div>
 </section>
 
-<section>
-  <h2>Skills</h2>
-  <div id="skills"></div>
+<section id="skills">
+  <h2>Skills Matrix</h2>
+  <div id="skills-container" class="grid"></div>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <div class="card" id="contact"></div>
-</section>
+<footer>
+  <p>© 2026 Chaithanya Kumar</p>
+</footer>
 
 <script>
+// TERMINAL EFFECT
+const text="$ whoami\nChaithanya Kumar\nSenior VMware & Cloud Engineer\n$ status: ACTIVE";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("terminal").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,30);
+  }
+}
+type();
+
+// LOAD DATA
 fetch('data.json')
-.then(res=>res.json())
+.then(r=>r.json())
 .then(data=>{
 
-document.getElementById("name").innerText=data.name;
-document.getElementById("title").innerText=data.title;
-document.getElementById("about-text").innerText=data.about;
+document.getElementById("about").innerText=data.about;
 
-// EXPERIENCE
 data.experience.forEach(job=>{
 let div=document.createElement("div");
 div.className="card";
 div.innerHTML=`
 <h3>${job.role} - ${job.company}</h3>
-<p><i>${job.duration}</i></p>
+<p>${job.duration}</p>
 <ul>${job.points.map(p=>`<li>${p}</li>`).join("")}</ul>
 `;
-document.getElementById("experience").appendChild(div);
+document.getElementById("experience-container").appendChild(div);
 });
 
-// AUTOMATION
-data.automation.forEach(tool=>{
+data.automation.forEach(t=>{
 let div=document.createElement("div");
 div.className="card";
-div.innerHTML=`<h3>${tool.name}</h3><p>${tool.description}</p>`;
-document.getElementById("automation").appendChild(div);
+div.innerHTML=`<b>${t.name}</b><p>${t.description}</p>`;
+document.getElementById("automation-container").appendChild(div);
 });
 
-// SKILLS
-data.skills.forEach(skill=>{
-let span=document.createElement("span");
-span.className="badge";
-span.innerText=skill;
-document.getElementById("skills").appendChild(span);
+data.skills.forEach(s=>{
+let div=document.createElement("div");
+div.className="badge";
+div.innerText=s;
+document.getElementById("skills-container").appendChild(div);
 });
 
-// CONTACT
-document.getElementById("contact").innerHTML=`
-<p>📍 ${data.location}</p>
-<p>📞 ${data.phone}</p>
-<p>✉️ ${data.email}</p>
-`;
-
 });
+
+// NETWORK BG
+const c=document.getElementById("bg");
+const ctx=c.getContext("2d");
+c.width=window.innerWidth;
+c.height=window.innerHeight;
+
+let dots=[];
+for(let i=0;i<60;i++){
+dots.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:1,vy:1});
+}
+
+function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+dots.forEach(d=>{
+ctx.fillStyle="#58a6ff";
+ctx.fillRect(d.x,d.y,2,2);
+d.x+=d.vx; d.y+=d.vy;
+if(d.x>c.width||d.x<0)d.vx*=-1;
+if(d.y>c.height||d.y<0)d.vy*=-1;
+});
+requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
