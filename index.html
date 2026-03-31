@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaithanya Kumar | Infrastructure Engineer</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Consolas, monospace;
+  background:#0d1117;
+  color:#c9d1d9;
+  overflow-x:hidden;
+}
+
+/* CANVAS BACKGROUND */
+#bg {
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+/* CONTENT */
+header, nav, section, footer {
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+header {
+  max-width:1000px;
+  margin:40px auto;
+  padding:25px;
+  background:#161b22cc;
+  border-radius:12px;
+  border:1px solid #30363d;
+  backdrop-filter:blur(6px);
+}
+
+#terminal {
+  color:#58a6ff;
+  white-space:pre-line;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  background:#161b22cc;
+}
+
+nav a {
+  color:#58a6ff;
+  text-decoration:none;
+}
+
+/* SECTIONS */
+section {
+  max-width:1000px;
+  margin:40px auto;
+  padding:25px;
+  background:#161b22cc;
+  border-radius:12px;
+  border:1px solid #30363d;
+  backdrop-filter:blur(6px);
+}
+
+h2 {
+  color:#58a6ff;
+}
+
+/* CARD */
+.card {
+  background:#0d1117;
+  padding:15px;
+  margin-top:15px;
+  border-radius:10px;
+  border:1px solid #30363d;
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+
+.badge {
+  background:#21262d;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <div id="terminal"></div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#automation">Automation</a>
+  <a href="#skills">Skills</a>
+</nav>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="card" id="about"></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div id="experience-container"></div>
+</section>
+
+<section id="automation">
+  <h2>Automation</h2>
+  <div id="automation-container" class="grid"></div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div id="skills-container" class="grid"></div>
+</section>
+
+<footer>
+  <p>© 2026 Chaithanya Kumar</p>
+</footer>
+
+<script>
+// TERMINAL TEXT
+const text="$ whoami\nChaithanya Kumar\nSenior VMware & Cloud Engineer\n$ system status: monitoring...";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("terminal").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,20);
+  }
+}
+type();
+
+// LOAD DATA
+fetch('data.json')
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("about").innerText=data.about;
+
+data.experience.forEach(job=>{
+let div=document.createElement("div");
+div.className="card";
+div.innerHTML=`
+<h3>${job.role} - ${job.company}</h3>
+<p>${job.duration}</p>
+<ul>${job.points.map(p=>`<li>${p}</li>`).join("")}</ul>
+`;
+document.getElementById("experience-container").appendChild(div);
+});
+
+data.automation.forEach(t=>{
+let div=document.createElement("div");
+div.className="card";
+div.innerHTML=`<b>${t.name}</b><p>${t.description}</p>`;
+document.getElementById("automation-container").appendChild(div);
+});
+
+data.skills.forEach(s=>{
+let div=document.createElement("div");
+div.className="badge";
+div.innerText=s;
+document.getElementById("skills-container").appendChild(div);
+});
+});
+
+// BACKGROUND SYSTEM SIMULATION
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let nodes=[];
+for(let i=0;i<40;i++){
+nodes.push({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  vx:(Math.random()-0.5)*0.5,
+  vy:(Math.random()-0.5)*0.5,
+  status:"ok",
+  timer:0
+});
+}
+
+function update(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+nodes.forEach(n=>{
+// RANDOM FAILURE
+if(Math.random()<0.002){
+  n.status="fail";
+  n.timer=100;
+}
+
+// RECOVERY
+if(n.status==="fail"){
+  n.timer--;
+  if(n.timer<=0) n.status="ok";
+}
+
+// COLOR
+let color = n.status==="fail" ? "red" : "#58a6ff";
+
+ctx.beginPath();
+ctx.arc(n.x,n.y,4,0,Math.PI*2);
+ctx.fillStyle=color;
+ctx.fill();
+
+// CONNECTIONS
+nodes.forEach(m=>{
+let dx=n.x-m.x, dy=n.y-m.y;
+let dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<120){
+ctx.beginPath();
+ctx.moveTo(n.x,n.y);
+ctx.lineTo(m.x,m.y);
+ctx.strokeStyle=n.status==="fail"?"rgba(255,0,0,0.3)":"rgba(88,166,255,0.2)";
+ctx.stroke();
+}
+});
+
+// MOVE
+n.x+=n.vx;
+n.y+=n.vy;
+
+if(n.x<0||n.x>canvas.width) n.vx*=-1;
+if(n.y<0||n.y>canvas.height) n.vy*=-1;
+
+});
+
+requestAnimationFrame(update);
+}
+update();
+
+window.addEventListener('resize',()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
