@@ -17,7 +17,8 @@ body {
 /* BACKGROUND */
 #bg {
   position:fixed;
-  top:0; left:0;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
   z-index:0;
@@ -67,9 +68,7 @@ section {
   border:1px solid #30363d;
 }
 
-h2 {
-  color:#58a6ff;
-}
+h2 { color:#58a6ff; }
 
 /* CARD */
 .card {
@@ -99,7 +98,6 @@ h2 {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:20px;
-  margin-top:15px;
 }
 
 .contact-box {
@@ -121,42 +119,7 @@ h2 {
   font-weight:bold;
 }
 
-.linkedin {
-  background:#0a66c2;
-}
-
-/* 🔥 FLOATING BUTTONS */
-.floating-container {
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  z-index:999;
-}
-
-.float-btn {
-  padding:12px 18px;
-  border-radius:30px;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-  transition:0.3s;
-}
-
-.float-btn:hover {
-  transform:translateY(-3px);
-}
-
-.hire {
-  background:#ff7b00;
-}
-
-.resume {
-  background:#238636;
-}
+.linkedin { background:#0a66c2; }
 
 footer {
   text-align:center;
@@ -168,18 +131,6 @@ footer {
 <body>
 
 <canvas id="bg"></canvas>
-
-<!-- 🔥 FLOATING BUTTONS -->
-<div class="floating-container">
-  <a href="mailto:kchaithanyaa77@gmail.com" class="float-btn hire">
-    💼 Hire Me
-  </a>
-
-  <!-- 🔥 CHANGE USERNAME BELOW -->
-  <a href="https://YOUR-USERNAME.github.io/resume.docx" class="float-btn resume">
-    📄 Download Resume
-  </a>
-</div>
 
 <header>
   <div id="terminal"></div>
@@ -195,7 +146,7 @@ footer {
 
 <section id="about">
   <h2>About</h2>
-  <div class="card" id="about"></div>
+  <div class="card" id="about-content"></div>
 </section>
 
 <section id="experience">
@@ -215,18 +166,17 @@ footer {
 
 <section id="contact">
   <h2>Get In Touch</h2>
-
   <div class="contact-grid">
 
     <div class="contact-box">
-      <h3>📞 Contact</h3>
-      <a href="mailto:kchaithanyaa77@gmail.com" class="btn">Email Me</a>
+      <h3>📞 Contact Details</h3>
+      <a href="mailto:kchaithanyaa77@gmail.com" class="btn">Email Me</a><br>
       <a href="tel:6366693936" class="btn">Call Me</a>
     </div>
 
     <div class="contact-box">
       <h3>🌐 LinkedIn</h3>
-      <a href="https://www.linkedin.com/in/chaithanya-kumar-5bb7a13bb" target="_blank" class="btn linkedin">
+      <a href="https://www.linkedin.com" target="_blank" class="btn linkedin">
         View Profile
       </a>
     </div>
@@ -240,86 +190,112 @@ footer {
 
 <script>
 // TERMINAL EFFECT
-const text="$ whoami\nChaithanya Kumar\nSenior VMware & Cloud Engineer\n$ status: actively open for opportunities";
-let i=0;
+const text = `$ whoami
+Chaithanya Kumar
+Senior VMware & Cloud Engineer
+$ status: actively open for opportunities`;
+
+let i = 0;
 function type(){
-  if(i<text.length){
-    document.getElementById("terminal").innerHTML+=text.charAt(i);
+  if(i < text.length){
+    document.getElementById("terminal").innerHTML += text.charAt(i);
     i++;
-    setTimeout(type,20);
+    setTimeout(type, 20);
   }
 }
 type();
 
 // LOAD DATA
 fetch('data.json')
-.then(r=>r.json())
-.then(data=>{
-document.getElementById("about").innerText=data.about;
+.then(r => r.json())
+.then(data => {
 
-data.experience.forEach(job=>{
-let div=document.createElement("div");
-div.className="card";
-div.innerHTML=`
-<h3>${job.role} - ${job.company}</h3>
-<p>${job.duration}</p>
-<ul>${job.points.map(p=>`<li>${p}</li>`).join("")}</ul>
-`;
-document.getElementById("experience-container").appendChild(div);
+  document.getElementById("about-content").innerText = data.about;
+
+  data.experience.forEach(job => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${job.role} - ${job.company}</h3>
+      <p>${job.duration}</p>
+      <ul>${job.points.map(p => `<li>${p}</li>`).join("")}</ul>
+    `;
+    document.getElementById("experience-container").appendChild(div);
+  });
+
+  data.automation.forEach(t => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<b>${t.name}</b><p>${t.description}</p>`;
+    document.getElementById("automation-container").appendChild(div);
+  });
+
+  data.skills.forEach(s => {
+    let div = document.createElement("div");
+    div.className = "badge";
+    div.innerText = s;
+    document.getElementById("skills-container").appendChild(div);
+  });
+
 });
 
-data.automation.forEach(t=>{
-let div=document.createElement("div");
-div.className="card";
-div.innerHTML=`<b>${t.name}</b><p>${t.description}</p>`;
-document.getElementById("automation-container").appendChild(div);
-});
+// 🌐 SERVER / NETWORK BACKGROUND
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-data.skills.forEach(s=>{
-let div=document.createElement("div");
-div.className="badge";
-div.innerText=s;
-document.getElementById("skills-container").appendChild(div);
-});
-});
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
 
-// BACKGROUND
-const canvas=document.getElementById("bg");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+let nodes = [];
 
-let nodes=[];
-for(let i=0;i<40;i++){
-nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5)});
+for(let i=0;i<50;i++){
+  nodes.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5)*0.6,
+    vy:(Math.random()-0.5)*0.6
+  });
 }
 
 function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
 
-nodes.forEach(n=>{
-ctx.beginPath();
-ctx.arc(n.x,n.y,4,0,Math.PI*2);
-ctx.fillStyle="#58a6ff";
-ctx.fill();
+  nodes.forEach(n => {
 
-nodes.forEach(m=>{
-let dx=n.x-m.x,dy=n.y-m.y,dist=Math.sqrt(dx*dx+dy*dy);
-if(dist<120){
-ctx.beginPath();
-ctx.moveTo(n.x,n.y);
-ctx.lineTo(m.x,m.y);
-ctx.strokeStyle="rgba(88,166,255,0.2)";
-ctx.stroke();
-}
-});
+    // Draw node
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 3, 0, Math.PI*2);
+    ctx.fillStyle = "#58a6ff";
+    ctx.fill();
 
-n.x+=n.vx; n.y+=n.vy;
-if(n.x<0||n.x>canvas.width)n.vx*=-1;
-if(n.y<0||n.y>canvas.height)n.vy*=-1;
-});
+    // Connections
+    nodes.forEach(m => {
+      let dx = n.x - m.x;
+      let dy = n.y - m.y;
+      let dist = Math.sqrt(dx*dx + dy*dy);
 
-requestAnimationFrame(draw);
+      if(dist < 130){
+        ctx.beginPath();
+        ctx.moveTo(n.x, n.y);
+        ctx.lineTo(m.x, m.y);
+        ctx.strokeStyle = "rgba(88,166,255,0.15)";
+        ctx.stroke();
+      }
+    });
+
+    // Move
+    n.x += n.vx;
+    n.y += n.vy;
+
+    if(n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if(n.y < 0 || n.y > canvas.height) n.vy *= -1;
+  });
+
+  requestAnimationFrame(draw);
 }
 draw();
 </script>
