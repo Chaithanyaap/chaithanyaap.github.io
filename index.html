@@ -11,23 +11,9 @@ body {
   font-family: Consolas, monospace;
   background:#0d1117;
   color:#c9d1d9;
-  overflow-x:hidden;
 }
 
-#bg {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:0;
-}
-
-header, nav, section, footer {
-  position:relative;
-  z-index:1;
-}
-
+/* HERO */
 .hero-banner {
   max-width:1000px;
   margin:20px auto;
@@ -35,8 +21,7 @@ header, nav, section, footer {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:linear-gradient(135deg,#161b22,#0d1117);
-  border:1px solid #30363d;
+  background:#161b22;
   border-radius:12px;
 }
 
@@ -45,15 +30,14 @@ header, nav, section, footer {
   height:10px;
   background:#3fb950;
   border-radius:50%;
-  box-shadow:0 0 10px #3fb950;
 }
 
+/* NAV */
 nav {
   display:flex;
   justify-content:center;
   gap:20px;
   padding:10px;
-  background:#161b22cc;
 }
 
 nav a {
@@ -61,35 +45,32 @@ nav a {
   text-decoration:none;
 }
 
+/* SECTION */
 section {
   max-width:1000px;
-  margin:40px auto;
-  padding:25px;
-  background:#161b22cc;
-  border-radius:12px;
-  border:1px solid #30363d;
+  margin:30px auto;
+  padding:20px;
+  background:#161b22;
+  border-radius:10px;
 }
-
-h2 { color:#58a6ff; }
 
 .card {
   background:#0d1117;
-  padding:18px;
-  margin-top:15px;
+  padding:15px;
   border-radius:10px;
+  margin-top:10px;
   border:1px solid #30363d;
   transition:0.3s;
 }
 
 .card:hover {
   transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
+  gap:10px;
 }
 
 .badge {
@@ -107,9 +88,12 @@ h2 { color:#58a6ff; }
   color:white;
   text-decoration:none;
   border-radius:6px;
+  font-size:13px;
 }
 
-.linkedin { background:#0a66c2; }
+.linkedin {
+  background:#0a66c2;
+}
 
 footer {
   text-align:center;
@@ -119,8 +103,6 @@ footer {
 </head>
 
 <body>
-
-<canvas id="bg"></canvas>
 
 <div class="hero-banner">
   <div>
@@ -197,21 +179,41 @@ fetch('data.json')
     document.getElementById("experience-container").appendChild(div);
   });
 
-  // AUTOMATION (🔥 UPDATED)
+  // AUTOMATION WITH ALL LINKS
   data.automation.forEach(t => {
     let div = document.createElement("div");
     div.className = "card";
 
     let extraLink = "";
 
-    if (t.name.toLowerCase().includes("patch")) {
-      extraLink = `
-        <a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/1"
-           target="_blank"
-           class="btn linkedin">
-           📄 View Report
-        </a>
-      `;
+    const name = t.name.toLowerCase();
+
+    if (name.includes("patch")) {
+      extraLink = `<a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/1" target="_blank" class="btn linkedin">📄 View Report</a>`;
+    }
+
+    if (name.includes("inventory")) {
+      extraLink = `<a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/2" target="_blank" class="btn">📊 View Inventory</a>`;
+    }
+
+    if (name.includes("health")) {
+      extraLink = `<a href="#" class="btn">🔍 View Health Checks</a>`;
+    }
+
+    if (name.includes("citrix")) {
+      extraLink = `<a href="#" class="btn">🚀 View Migration Tool</a>`;
+    }
+
+    if (name.includes("ram")) {
+      extraLink = `<a href="#" class="btn">⚡ View RAM Tool</a>`;
+    }
+
+    if (name.includes("hardware")) {
+      extraLink = `<a href="#" class="btn">🖥️ View Upgrade Tool</a>`;
+    }
+
+    if (name.includes("keepass")) {
+      extraLink = `<a href="#" class="btn">🔐 View Tool</a>`;
     }
 
     div.innerHTML = `
@@ -232,40 +234,6 @@ fetch('data.json')
   });
 
 });
-
-// BACKGROUND (same as yours)
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let nodes=[];
-for(let i=0;i<40;i++){
-  nodes.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    vx:(Math.random()-0.5),
-    vy:(Math.random()-0.5)
-  });
-}
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  nodes.forEach(n=>{
-    ctx.beginPath();
-    ctx.arc(n.x,n.y,3,0,Math.PI*2);
-    ctx.fillStyle="#58a6ff";
-    ctx.fill();
-
-    n.x+=n.vx;
-    n.y+=n.vy;
-  });
-
-  requestAnimationFrame(draw);
-}
-draw();
 </script>
 
 </body>
