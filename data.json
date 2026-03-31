@@ -6,49 +6,49 @@
   "phone": "+91-9966005527",
   "email": "chaithanya.vm2@gmail.com",
 
-  "about": "Senior VMware & Cloud Engineer with 9+ years of experience in enterprise virtualization, OCI cloud, OLVM/KVM environments, and large-scale datacenter operations. Proven ability to lead migrations, automate infrastructure, and maintain highly available systems with 99.99% uptime.",
+  "about": "Senior VMware & Cloud Engineer with 9+ years of experience in enterprise virtualization, OCI cloud, OLVM/KVM environments, and datacenter operations. Expert in designing scalable infrastructure, leading migration projects, and implementing automation to improve performance, availability, and operational efficiency.",
 
   "skills": [
-    "VMware vSphere, ESXi, vCenter",
-    "vSAN, HA, DRS",
-    "OCI Cloud (VM Deployment & Management)",
+    "VMware vSphere, vCenter, ESXi",
+    "vSAN, HA, DRS, vMotion",
+    "Oracle Cloud Infrastructure (OCI)",
     "OLVM / KVM Virtualization",
     "PowerCLI Automation",
-    "SCCM / Shavlik Patch Automation",
-    "Veeam Backup & DR",
+    "SCCM / Shavlik Patch Management",
+    "Veeam Backup & Disaster Recovery",
     "F5 Load Balancer",
     "SolarWinds, Splunk, Nagios",
-    "Migration Projects & Datacenter Ops"
+    "Migration & Datacenter Transformation"
   ],
 
   "automation": [
     {
       "name": "ESXi Patch Reporting",
-      "description": "Automated ESXi patch compliance reporting using PowerCLI across clusters."
+      "description": "Developed PowerCLI scripts to generate automated ESXi patch compliance reports across clusters, improving audit readiness and visibility."
     },
     {
       "name": "Inventory Collection",
-      "description": "Scripted collection of VM, host, and datastore inventory across environments."
+      "description": "Built automation scripts to extract VM, host, datastore, and cluster inventory data for large-scale environments."
     },
     {
       "name": "Health Checks",
-      "description": "Automated daily health checks for VMware infrastructure."
+      "description": "Implemented automated health checks for ESXi hosts, vCenter, and VMs, reducing manual monitoring effort."
     },
     {
       "name": "Citrix Migration Tool",
-      "description": "Automation tool to support Citrix workload migration."
+      "description": "Created automation workflows to assist in Citrix workload migrations with minimal downtime."
     },
     {
       "name": "RAM Expansion Tool",
-      "description": "Bulk VM RAM expansion automation with validation."
+      "description": "Developed scripts to perform bulk VM memory expansion with validation and logging."
     },
     {
       "name": "Hardware Version Tool",
-      "description": "Automated VM hardware version upgrades."
+      "description": "Automated VM hardware upgrades across clusters, ensuring compatibility and compliance."
     },
     {
       "name": "KeePass Retrieval Tool",
-      "description": "Secure credential retrieval automation using KeePass."
+      "description": "Implemented secure credential retrieval automation integrated with KeePass for infrastructure scripts."
     }
   ],
 
@@ -58,49 +58,56 @@
       "company": "Oracle Cerner",
       "duration": "Jun 2020 – Present",
       "points": [
-        "Managing 50,000+ VMs and 6000+ ESXi hosts across multiple data centers",
-        "Designed HA/DRS clusters achieving 99.99% uptime",
-        "Handled OCI VM deployments and lifecycle management",
-        "Worked on OLVM (KVM) server deployments and administration",
-        "Led large-scale migration projects across VMware, Citrix, and Cloud",
-        "Automated provisioning reducing deployment time by 40%",
-        "Improved MTTR by 30% through advanced troubleshooting"
+        "Manage and maintain enterprise-scale infrastructure with over 50,000 virtual machines and 6000+ ESXi hosts across multiple global data centers.",
+        "Designed and implemented VMware vSphere clusters with HA and DRS policies, achieving 99.99% uptime for critical healthcare workloads.",
+        "Led OCI VM deployment and lifecycle management including provisioning, scaling, monitoring, and troubleshooting.",
+        "Administer OLVM (KVM) environments including VM provisioning, resource allocation, and performance tuning.",
+        "Executed large-scale migration projects including VMware to cloud, Citrix migrations, and cross-platform workload transitions.",
+        "Automated VM provisioning, patching, and infrastructure tasks using PowerCLI, reducing deployment time by over 40%.",
+        "Managed vSAN storage environments, LUN provisioning, and storage optimization for high performance.",
+        "Collaborated with network and security teams integrating F5 load balancers and enterprise hardware environments.",
+        "Worked closely with VMware support teams on critical ESXi failures, reducing MTTR by 30%.",
+        "Implemented proactive monitoring and alerting strategies to ensure high availability and system reliability."
       ]
     },
     {
       "role": "Systems Administrator / IT Consultant",
-      "company": "Lowe’s Services India & KPMG",
+      "company": "Lowe’s Services India Pvt Ltd & KPMG Global Services",
       "duration": "Jul 2019 – Jun 2020",
       "points": [
-        "Executed VMware patching and upgrades using Update Manager",
-        "Supported VMware 6.x to 7.x migrations",
-        "Performed P2V and V2V migrations",
-        "Automated Windows patching using SCCM and Shavlik",
-        "Improved monitoring using SolarWinds and vRops",
-        "Reduced manual effort by 50% through automation"
+        "Executed end-to-end VMware patching and upgrade activities using VMware Update Manager ensuring compliance with security standards.",
+        "Supported VMware environments across versions 6.x and 7.x, enabling seamless upgrades and migrations.",
+        "Performed P2V and V2V migrations for legacy systems, improving infrastructure efficiency and scalability.",
+        "Automated Windows server patching and deployments using SCCM and Shavlik, reducing manual effort by 50%.",
+        "Implemented live migrations using vMotion and Storage vMotion to ensure zero downtime maintenance.",
+        "Enhanced monitoring and alerting using SolarWinds and vRealize Operations (vRops).",
+        "Performed root cause analysis on infrastructure issues, reducing recurring incidents.",
+        "Collaborated with networking teams for VLAN, router, and switch troubleshooting."
       ]
     },
     {
       "role": "System Analyst",
-      "company": "Philips",
+      "company": "U.S. Technology International Pvt Ltd (Philips)",
       "duration": "Sep 2017 – Jun 2019",
       "points": [
-        "Managed patching for 20,000+ systems",
-        "Administered Windows Server environments",
-        "Handled full VM lifecycle management",
-        "Improved monitoring using Nagios and Tivoli",
-        "Supported VMware vCenter upgrades"
+        "Managed Windows patching operations for over 20,000 enterprise endpoints ensuring near 100% compliance.",
+        "Administered Windows Server environments including 2003, 2008, and 2012 R2 platforms.",
+        "Handled complete VM lifecycle management including provisioning, patching, monitoring, and decommissioning.",
+        "Improved monitoring systems using Nagios and Tivoli for proactive issue detection.",
+        "Supported VMware vCenter upgrades and ESXi maintenance activities.",
+        "Collaborated with infrastructure teams for performance tuning and system optimization."
       ]
     },
     {
       "role": "Support Engineer",
-      "company": "Orchestrate Systems",
+      "company": "Orchestrate Systems Pvt Ltd",
       "duration": "Nov 2015 – Nov 2016",
       "points": [
-        "Worked in NOC monitoring VMware and Windows environments",
-        "Provided Tier-1 troubleshooting support",
-        "Created performance dashboards",
-        "Improved incident response handling"
+        "Worked in NOC/OC environment monitoring VMware, Windows, and application systems across global clients.",
+        "Provided Tier-1 and Tier-2 support for VMware and Windows-related issues.",
+        "Created daily performance and availability reports using monitoring tools like Tivoli and vRops.",
+        "Handled incident management and escalations with proper documentation and RCA.",
+        "Improved response times and service availability through proactive monitoring."
       ]
     }
   ]
