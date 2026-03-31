@@ -97,6 +97,19 @@ h2 {
   text-align:center;
 }
 
+/* BUTTON */
+.btn {
+  display:inline-block;
+  padding:10px 16px;
+  background:#238636;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  margin-top:10px;
+}
+.btn:hover { opacity:0.8; }
+
 footer {
   text-align:center;
   padding:20px;
@@ -117,6 +130,7 @@ footer {
   <a href="#experience">Experience</a>
   <a href="#automation">Automation</a>
   <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
@@ -139,13 +153,46 @@ footer {
   <div id="skills-container" class="grid"></div>
 </section>
 
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <h2>Contact / Hire Me</h2>
+
+  <div class="card">
+    <p><strong>📩 Open for opportunities in Virtualization, Cloud & Infrastructure Engineering</strong></p>
+
+    <p>
+      If you are looking for someone who can manage enterprise-scale environments,
+      lead migrations, and automate infrastructure — let’s connect.
+    </p>
+
+    <hr style="border:0.5px solid #30363d; margin:15px 0;">
+
+    <p>📧 Email:
+      <a href="mailto:kchaithanyaa77@gmail.com" style="color:#58a6ff;">
+        kchaithanyaa77@gmail.com
+      </a>
+    </p>
+
+    <p>📞 Phone:
+      <a href="tel:6366693936" style="color:#58a6ff;">
+        +91 6366693936
+      </a>
+    </p>
+
+    <div>
+      <a href="mailto:kchaithanyaa77@gmail.com" class="btn">🚀 Contact Me</a>
+      <a href="tel:6366693936" class="btn" style="background:#1f6feb;">📞 Call Me</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p>© 2026 Chaithanya Kumar</p>
 </footer>
 
 <script>
-// TERMINAL TEXT
-const text="$ whoami\nChaithanya Kumar\nSenior VMware & Cloud Engineer\n$ system status: monitoring...";
+// TERMINAL EFFECT
+const text="$ whoami\nChaithanya Kumar\nSenior VMware & Cloud Engineer\n$ system: monitoring infrastructure...";
 let i=0;
 function type(){
   if(i<text.length){
@@ -188,7 +235,7 @@ document.getElementById("skills-container").appendChild(div);
 });
 });
 
-// BACKGROUND SYSTEM SIMULATION
+// BACKGROUND SIMULATION
 const canvas=document.getElementById("bg");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
@@ -196,44 +243,25 @@ canvas.height=window.innerHeight;
 
 let nodes=[];
 for(let i=0;i<40;i++){
-nodes.push({
-  x:Math.random()*canvas.width,
-  y:Math.random()*canvas.height,
-  vx:(Math.random()-0.5)*0.5,
-  vy:(Math.random()-0.5)*0.5,
-  status:"ok",
-  timer:0
-});
+nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5),status:"ok",timer:0});
 }
 
-function update(){
+function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
 nodes.forEach(n=>{
-// RANDOM FAILURE
-if(Math.random()<0.002){
-  n.status="fail";
-  n.timer=100;
-}
+if(Math.random()<0.002){n.status="fail";n.timer=100;}
+if(n.status==="fail"){n.timer--; if(n.timer<=0)n.status="ok";}
 
-// RECOVERY
-if(n.status==="fail"){
-  n.timer--;
-  if(n.timer<=0) n.status="ok";
-}
-
-// COLOR
-let color = n.status==="fail" ? "red" : "#58a6ff";
+let color=n.status==="fail"?"red":"#58a6ff";
 
 ctx.beginPath();
 ctx.arc(n.x,n.y,4,0,Math.PI*2);
 ctx.fillStyle=color;
 ctx.fill();
 
-// CONNECTIONS
 nodes.forEach(m=>{
-let dx=n.x-m.x, dy=n.y-m.y;
-let dist=Math.sqrt(dx*dx+dy*dy);
+let dx=n.x-m.x,dy=n.y-m.y,dist=Math.sqrt(dx*dx+dy*dy);
 if(dist<120){
 ctx.beginPath();
 ctx.moveTo(n.x,n.y);
@@ -243,23 +271,14 @@ ctx.stroke();
 }
 });
 
-// MOVE
-n.x+=n.vx;
-n.y+=n.vy;
-
-if(n.x<0||n.x>canvas.width) n.vx*=-1;
-if(n.y<0||n.y>canvas.height) n.vy*=-1;
-
+n.x+=n.vx; n.y+=n.vy;
+if(n.x<0||n.x>canvas.width)n.vx*=-1;
+if(n.y<0||n.y>canvas.height)n.vy*=-1;
 });
 
-requestAnimationFrame(update);
+requestAnimationFrame(draw);
 }
-update();
-
-window.addEventListener('resize',()=>{
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-});
+draw();
 </script>
 
 </body>
