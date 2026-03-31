@@ -1,54 +1,34 @@
 {
   "name": "Chaithanya Kumar Gogula",
-  "title": "Senior VMware Administrator",
+  "title": "Senior VMware Administrator | Cloud & Virtualization Specialist",
+
   "location": "Bangalore, India",
   "phone": "+91-9966005527",
   "email": "chaithanya.vm2@gmail.com",
 
-  "about": "VMware Administrator with 9 years of experience in enterprise virtualization, infrastructure automation, and datacenter operations.",
+  "about": "Senior VMware & Cloud Engineer with 9+ years of experience managing enterprise-scale virtualization, OCI cloud infrastructure, and datacenter operations. Proven expertise in VMware, OLVM (KVM), and cloud migration projects delivering highly available and secure environments.",
 
   "skills": [
-    "VMware vSphere",
-    "vCenter & ESXi",
-    "vSAN",
-    "HA / DRS",
+    "VMware vSphere, ESXi, vCenter",
+    "vSAN, HA, DRS",
+    "OCI Cloud (VM Deployment & Management)",
+    "OLVM / KVM Virtualization",
     "PowerCLI Automation",
-    "SCCM / Shavlik",
-    "Veeam Backup",
+    "SCCM / Patch Automation",
+    "Veeam Backup & DR",
     "F5 Load Balancer",
-    "SolarWinds",
-    "Splunk"
+    "SolarWinds, Splunk",
+    "Migration & Datacenter Projects"
   ],
 
   "automation": [
-    {
-      "name": "ESXi Patch Reporting",
-      "description": "Automated ESXi patch compliance reporting using PowerCLI."
-    },
-    {
-      "name": "Inventory Collection",
-      "description": "Script to collect VM, host and datastore inventory."
-    },
-    {
-      "name": "Health Checks",
-      "description": "Automated monitoring and health reporting."
-    },
-    {
-      "name": "Citrix Migration Tool",
-      "description": "Automated Citrix workload migration."
-    },
-    {
-      "name": "RAM Expansion Tool",
-      "description": "Bulk VM RAM expansion automation."
-    },
-    {
-      "name": "Hardware Version Tool",
-      "description": "VM hardware upgrade automation."
-    },
-    {
-      "name": "KeePass Retrieval Tool",
-      "description": "Secure credential retrieval automation."
-    }
+    {"name": "ESXi Patch Reporting", "description": "Automated patch compliance reporting using PowerCLI"},
+    {"name": "Inventory Collection", "description": "Automated infrastructure inventory reporting"},
+    {"name": "Health Checks", "description": "Daily VM and host health automation"},
+    {"name": "Citrix Migration Tool", "description": "Migration automation with minimal downtime"},
+    {"name": "RAM Expansion Tool", "description": "Bulk VM memory scaling automation"},
+    {"name": "Hardware Version Tool", "description": "Automated VM hardware upgrades"},
+    {"name": "KeePass Retrieval Tool", "description": "Secure credential automation"}
   ],
 
   "experience": [
@@ -57,10 +37,14 @@
       "company": "Oracle Cerner",
       "duration": "2020 - Present",
       "points": [
-        "Managed 50,000+ VMs",
-        "Achieved 99.99% uptime",
-        "Automated deployments",
-        "Handled vSAN and storage"
+        "Managing 50,000+ VMs and large-scale ESXi infrastructure",
+        "Achieved 99.99% uptime for critical workloads",
+        "Designed HA/DRS optimized clusters",
+        "Handled OCI VM deployments and lifecycle management",
+        "Worked on OLVM (KVM) deployments and administration",
+        "Led migration projects across platforms (VMware, Citrix, Cloud)",
+        "Automated provisioning reducing time by 40%",
+        "Improved recovery time by 30%"
       ]
     }
   ]
