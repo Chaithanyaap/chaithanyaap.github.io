@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chaithanya Kumar | VMware & Cloud Engineer</title>
+<title>Chaithanya Kumar | VMware Engineer</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -15,63 +15,47 @@ body {
   color: #c9d1d9;
 }
 
-/* NAV */
 nav {
   display: flex;
   justify-content: center;
   gap: 20px;
   background: #161b22;
   padding: 15px;
-  position: sticky;
-  top: 0;
 }
+
 nav a {
   color: #58a6ff;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* HEADER */
 header {
   text-align: center;
-  padding: 50px;
-}
-header h1 {
-  color: #58a6ff;
-}
-header p {
-  color: #8b949e;
+  padding: 40px;
 }
 
-/* SECTIONS */
 section {
   max-width: 950px;
   margin: 40px auto;
   padding: 20px;
 }
+
 h2 {
   color: #58a6ff;
   border-bottom: 1px solid #30363d;
 }
 
-/* CARDS */
 .card {
   background: #161b22;
   padding: 15px;
   margin-top: 15px;
   border-radius: 10px;
   border: 1px solid #30363d;
-  transition: 0.3s;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(88,166,255,0.3);
 }
 
-/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 10px;
 }
 
@@ -81,35 +65,10 @@ h2 {
   border-radius: 6px;
   text-align: center;
 }
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #238636;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-}
 </style>
 </head>
 
 <body>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#automation">Automation</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
 
 <header>
   <h1 id="name"></h1>
@@ -127,7 +86,7 @@ footer {
 </section>
 
 <section id="automation">
-  <h2>Automation & PowerShell</h2>
+  <h2>Automation</h2>
   <div id="automation-container"></div>
 </section>
 
@@ -139,20 +98,7 @@ footer {
 <section id="contact">
   <h2>Contact</h2>
   <div class="card" id="contact-container"></div>
-
-  <!-- EMAIL TRACKING FORM -->
-  <form action="https://formsubmit.co/kchaithanyaa77@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="Profile Visit Notification">
-    <input type="hidden" name="_template" value="box">
-    <button class="btn">📩 Notify Me of Visit</button>
-  </form>
-
-  <a href="mailto:chaithanya.vm2@gmail.com" class="btn">📄 Request Resume</a>
 </section>
-
-<footer>
-  <p>© 2026 Chaithanya Kumar</p>
-</footer>
 
 <script>
 fetch('data.json')
