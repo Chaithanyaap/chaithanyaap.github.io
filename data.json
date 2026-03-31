@@ -1,83 +1,67 @@
 {
   "name": "Chaithanya Kumar Gogula",
-  "title": "Senior VMware Administrator | Virtualization & Infrastructure Specialist",
+  "title": "Senior VMware Administrator",
   "location": "Bangalore, India",
   "phone": "+91-9966005527",
   "email": "chaithanya.vm2@gmail.com",
 
-  "about": "VMware Administrator with 9 years of expertise in designing, managing, and securing enterprise-scale virtualization environments across healthcare, retail, and consulting domains. Adept at VMware vSphere, vCenter, ESXi, vSAN with proven ability to drive infrastructure modernization, improve system resilience, and reduce operational costs.",
+  "about": "VMware Administrator with 9 years of experience in enterprise virtualization, infrastructure automation, and datacenter operations.",
 
   "skills": [
-    "VMware vSphere, vCenter, ESXi, vSAN",
-    "HA, DRS, vMotion, Storage vMotion",
-    "HPE Synergy, Cisco UCS, Dell Servers",
-    "Patch Automation (SCCM, Shavlik)",
-    "Veeam Backup & Disaster Recovery",
-    "Splunk, SolarWinds, Nagios",
-    "F5 Load Balancer, VLAN Troubleshooting",
-    "ITIL, Incident & Change Management"
+    "VMware vSphere",
+    "vCenter & ESXi",
+    "vSAN",
+    "HA / DRS",
+    "PowerCLI Automation",
+    "SCCM / Shavlik",
+    "Veeam Backup",
+    "F5 Load Balancer",
+    "SolarWinds",
+    "Splunk"
+  ],
+
+  "automation": [
+    {
+      "name": "ESXi Patch Reporting",
+      "description": "Automated ESXi patch compliance reporting using PowerCLI."
+    },
+    {
+      "name": "Inventory Collection",
+      "description": "Script to collect VM, host and datastore inventory."
+    },
+    {
+      "name": "Health Checks",
+      "description": "Automated monitoring and health reporting."
+    },
+    {
+      "name": "Citrix Migration Tool",
+      "description": "Automated Citrix workload migration."
+    },
+    {
+      "name": "RAM Expansion Tool",
+      "description": "Bulk VM RAM expansion automation."
+    },
+    {
+      "name": "Hardware Version Tool",
+      "description": "VM hardware upgrade automation."
+    },
+    {
+      "name": "KeePass Retrieval Tool",
+      "description": "Secure credential retrieval automation."
+    }
   ],
 
   "experience": [
     {
       "role": "Virtualization Engineer II",
       "company": "Oracle Cerner",
-      "duration": "Jun 2020 – Present",
+      "duration": "2020 - Present",
       "points": [
-        "Managing 50,000+ VMs and 6000+ ESXi hosts across multiple data centers",
-        "Designed VMware clusters with HA/DRS achieving 99.99% uptime",
-        "Automated deployments reducing provisioning time by 40%",
-        "Worked on vSAN, storage provisioning, and LUN configuration",
-        "Reduced MTTR by 30% by resolving ESXi host failures"
-      ]
-    },
-    {
-      "role": "Systems Administrator / IT Consultant",
-      "company": "Lowe’s & KPMG",
-      "duration": "Jul 2019 – Jun 2020",
-      "points": [
-        "Handled VMware patching and upgrades using Update Manager",
-        "Supported VMware 6.x to 7.x migrations",
-        "Automated Windows patching using SCCM & Shavlik",
-        "Reduced manual work by 50%",
-        "Improved monitoring with SolarWinds and vRops"
-      ]
-    },
-    {
-      "role": "System Analyst",
-      "company": "Philips",
-      "duration": "Sep 2017 – Jun 2019",
-      "points": [
-        "Managed patching for 20,000+ systems",
-        "Administered Windows Server infrastructure",
-        "Handled full VM lifecycle",
-        "Improved monitoring using Nagios and Tivoli"
-      ]
-    },
-    {
-      "role": "Support Engineer",
-      "company": "Orchestrate Systems",
-      "duration": "Nov 2015 – Nov 2016",
-      "points": [
-        "Worked in NOC monitoring environments",
-        "Provided Tier-1 VMware/Windows support",
-        "Created performance dashboards",
-        "Improved incident response handling"
+        "Managed 50,000+ VMs",
+        "Achieved 99.99% uptime",
+        "Automated deployments",
+        "Handled vSAN and storage"
       ]
     }
-  ],
-
-  "education": {
-    "degree": "B.Tech in Computer Science Engineering",
-    "institution": "JNTUA",
-    "duration": "2010 – 2014"
-  },
-
-  "certifications": [
-    "VMware Certified Professional (VCP)",
-    "ITIL v4 Foundation",
-    "Splunk Admin Certification",
-    "AWS Outpost Training",
-    "Shavlik Patch Management"
   ]
 }
