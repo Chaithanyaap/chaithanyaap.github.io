@@ -5,28 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chaithanya Kumar | VMware Engineer</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', monospace;
+  font-family: Arial;
   background: #0d1117;
   color: #c9d1d9;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background: #161b22;
-  padding: 15px;
-}
-
-nav a {
-  color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 header {
@@ -35,7 +19,7 @@ header {
 }
 
 section {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -47,23 +31,22 @@ h2 {
 
 .card {
   background: #161b22;
-  padding: 15px;
-  margin-top: 15px;
+  padding: 20px;
+  margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid #30363d;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 10px;
+ul {
+  padding-left: 20px;
+  line-height: 1.6;
 }
 
 .badge {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px;
   background: #21262d;
-  padding: 10px;
   border-radius: 6px;
-  text-align: center;
 }
 </style>
 </head>
@@ -75,71 +58,75 @@ h2 {
   <p id="title"></p>
 </header>
 
-<section id="about">
+<section>
   <h2>About</h2>
   <div class="card"><p id="about-text"></p></div>
 </section>
 
-<section id="experience">
+<section>
   <h2>Experience</h2>
-  <div id="experience-container"></div>
+  <div id="experience"></div>
 </section>
 
-<section id="automation">
+<section>
   <h2>Automation</h2>
-  <div id="automation-container"></div>
+  <div id="automation"></div>
 </section>
 
-<section id="skills">
+<section>
   <h2>Skills</h2>
-  <div id="skills-container" class="grid"></div>
+  <div id="skills"></div>
 </section>
 
-<section id="contact">
+<section>
   <h2>Contact</h2>
-  <div class="card" id="contact-container"></div>
+  <div class="card" id="contact"></div>
 </section>
 
 <script>
 fetch('data.json')
-.then(res => res.json())
-.then(data => {
+.then(res=>res.json())
+.then(data=>{
 
-  document.getElementById("name").textContent = data.name;
-  document.getElementById("title").textContent = data.title;
-  document.getElementById("about-text").textContent = data.about;
+document.getElementById("name").innerText=data.name;
+document.getElementById("title").innerText=data.title;
+document.getElementById("about-text").innerText=data.about;
 
-  data.experience.forEach(job => {
-    const div = document.createElement("div");
-    div.className = "card";
+// EXPERIENCE
+data.experience.forEach(job=>{
+let div=document.createElement("div");
+div.className="card";
+div.innerHTML=`
+<h3>${job.role} - ${job.company}</h3>
+<p><i>${job.duration}</i></p>
+<ul>${job.points.map(p=>`<li>${p}</li>`).join("")}</ul>
+`;
+document.getElementById("experience").appendChild(div);
+});
 
-    div.innerHTML = `
-      <h3>${job.role} - ${job.company}</h3>
-      <p><i>${job.duration}</i></p>
-      <ul>${job.points.map(p => `<li>${p}</li>`).join("")}</ul>
-    `;
-    document.getElementById("experience-container").appendChild(div);
-  });
+// AUTOMATION
+data.automation.forEach(tool=>{
+let div=document.createElement("div");
+div.className="card";
+div.innerHTML=`<h3>${tool.name}</h3><p>${tool.description}</p>`;
+document.getElementById("automation").appendChild(div);
+});
 
-  data.automation.forEach(tool => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `<h3>${tool.name}</h3><p>${tool.description}</p>`;
-    document.getElementById("automation-container").appendChild(div);
-  });
+// SKILLS
+data.skills.forEach(skill=>{
+let span=document.createElement("span");
+span.className="badge";
+span.innerText=skill;
+document.getElementById("skills").appendChild(span);
+});
 
-  data.skills.forEach(skill => {
-    const div = document.createElement("div");
-    div.className = "badge";
-    div.textContent = skill;
-    document.getElementById("skills-container").appendChild(div);
-  });
+// CONTACT
+document.getElementById("contact").innerHTML=`
+<p>📍 ${data.location}</p>
+<p>📞 ${data.phone}</p>
+<p>✉️ ${data.email}</p>
+`;
 
-  document.getElementById("contact-container").innerHTML = `
-    <p>📍 ${data.location}</p>
-    <p>📞 ${data.phone}</p>
-    <p>✉️ ${data.email}</p>
-  `;
 });
 </script>
 
