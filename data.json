@@ -6,7 +6,7 @@
   "phone": "+91-9966005527",
   "email": "chaithanya.vm2@gmail.com",
 
-  "about": "Senior VMware & Cloud Engineer with 9+ years of experience managing enterprise-scale virtualization, OCI cloud infrastructure, and datacenter operations. Proven expertise in VMware, OLVM (KVM), and cloud migration projects delivering highly available and secure environments.",
+  "about": "Senior VMware & Cloud Engineer with 9+ years of experience in enterprise virtualization, OCI cloud, OLVM/KVM environments, and large-scale datacenter operations. Proven ability to lead migrations, automate infrastructure, and maintain highly available systems with 99.99% uptime.",
 
   "skills": [
     "VMware vSphere, ESXi, vCenter",
@@ -14,37 +14,93 @@
     "OCI Cloud (VM Deployment & Management)",
     "OLVM / KVM Virtualization",
     "PowerCLI Automation",
-    "SCCM / Patch Automation",
+    "SCCM / Shavlik Patch Automation",
     "Veeam Backup & DR",
     "F5 Load Balancer",
-    "SolarWinds, Splunk",
-    "Migration & Datacenter Projects"
+    "SolarWinds, Splunk, Nagios",
+    "Migration Projects & Datacenter Ops"
   ],
 
   "automation": [
-    {"name": "ESXi Patch Reporting", "description": "Automated patch compliance reporting using PowerCLI"},
-    {"name": "Inventory Collection", "description": "Automated infrastructure inventory reporting"},
-    {"name": "Health Checks", "description": "Daily VM and host health automation"},
-    {"name": "Citrix Migration Tool", "description": "Migration automation with minimal downtime"},
-    {"name": "RAM Expansion Tool", "description": "Bulk VM memory scaling automation"},
-    {"name": "Hardware Version Tool", "description": "Automated VM hardware upgrades"},
-    {"name": "KeePass Retrieval Tool", "description": "Secure credential automation"}
+    {
+      "name": "ESXi Patch Reporting",
+      "description": "Automated ESXi patch compliance reporting using PowerCLI across clusters."
+    },
+    {
+      "name": "Inventory Collection",
+      "description": "Scripted collection of VM, host, and datastore inventory across environments."
+    },
+    {
+      "name": "Health Checks",
+      "description": "Automated daily health checks for VMware infrastructure."
+    },
+    {
+      "name": "Citrix Migration Tool",
+      "description": "Automation tool to support Citrix workload migration."
+    },
+    {
+      "name": "RAM Expansion Tool",
+      "description": "Bulk VM RAM expansion automation with validation."
+    },
+    {
+      "name": "Hardware Version Tool",
+      "description": "Automated VM hardware version upgrades."
+    },
+    {
+      "name": "KeePass Retrieval Tool",
+      "description": "Secure credential retrieval automation using KeePass."
+    }
   ],
 
   "experience": [
     {
       "role": "Virtualization Engineer II",
       "company": "Oracle Cerner",
-      "duration": "2020 - Present",
+      "duration": "Jun 2020 – Present",
       "points": [
-        "Managing 50,000+ VMs and large-scale ESXi infrastructure",
-        "Achieved 99.99% uptime for critical workloads",
-        "Designed HA/DRS optimized clusters",
+        "Managing 50,000+ VMs and 6000+ ESXi hosts across multiple data centers",
+        "Designed HA/DRS clusters achieving 99.99% uptime",
         "Handled OCI VM deployments and lifecycle management",
-        "Worked on OLVM (KVM) deployments and administration",
-        "Led migration projects across platforms (VMware, Citrix, Cloud)",
-        "Automated provisioning reducing time by 40%",
-        "Improved recovery time by 30%"
+        "Worked on OLVM (KVM) server deployments and administration",
+        "Led large-scale migration projects across VMware, Citrix, and Cloud",
+        "Automated provisioning reducing deployment time by 40%",
+        "Improved MTTR by 30% through advanced troubleshooting"
+      ]
+    },
+    {
+      "role": "Systems Administrator / IT Consultant",
+      "company": "Lowe’s Services India & KPMG",
+      "duration": "Jul 2019 – Jun 2020",
+      "points": [
+        "Executed VMware patching and upgrades using Update Manager",
+        "Supported VMware 6.x to 7.x migrations",
+        "Performed P2V and V2V migrations",
+        "Automated Windows patching using SCCM and Shavlik",
+        "Improved monitoring using SolarWinds and vRops",
+        "Reduced manual effort by 50% through automation"
+      ]
+    },
+    {
+      "role": "System Analyst",
+      "company": "Philips",
+      "duration": "Sep 2017 – Jun 2019",
+      "points": [
+        "Managed patching for 20,000+ systems",
+        "Administered Windows Server environments",
+        "Handled full VM lifecycle management",
+        "Improved monitoring using Nagios and Tivoli",
+        "Supported VMware vCenter upgrades"
+      ]
+    },
+    {
+      "role": "Support Engineer",
+      "company": "Orchestrate Systems",
+      "duration": "Nov 2015 – Nov 2016",
+      "points": [
+        "Worked in NOC monitoring VMware and Windows environments",
+        "Provided Tier-1 troubleshooting support",
+        "Created performance dashboards",
+        "Improved incident response handling"
       ]
     }
   ]
