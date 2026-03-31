@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaithanya Kumar | Infrastructure Engineer</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Consolas, monospace;
+  background:#0d1117;
+  color:#c9d1d9;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+#bg {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+header, nav, section, footer {
+  position:relative;
+  z-index:1;
+}
+
+/* HERO */
+.hero-banner {
+  max-width:1000px;
+  margin:20px auto;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(135deg,#161b22,#0d1117);
+  border:1px solid #30363d;
+  border-radius:12px;
+}
+
+.dot {
+  width:10px;
+  height:10px;
+  background:#3fb950;
+  border-radius:50%;
+  box-shadow:0 0 10px #3fb950;
+}
+
+.status-box {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  background:#161b22cc;
+}
+
+nav a {
+  color:#58a6ff;
+  text-decoration:none;
+}
+
+/* SECTION */
+section {
+  max-width:1000px;
+  margin:40px auto;
+  padding:25px;
+  background:#161b22cc;
+  border-radius:12px;
+  border:1px solid #30363d;
+}
+
+h2 { color:#58a6ff; }
+
+/* CARD */
+.card {
+  background:#0d1117;
+  padding:18px;
+  margin-top:15px;
+  border-radius:10px;
+  border:1px solid #30363d;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+
+.badge {
+  background:#21262d;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+}
+
+/* CONTACT */
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.contact-box div {
+  background:#161b22;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #30363d;
+  transition:0.3s;
+  margin-top:10px;
+}
+
+.contact-box div:hover {
+  border-color:#58a6ff;
+  box-shadow:0 0 15px rgba(88,166,255,0.3);
+}
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  padding:8px 12px;
+  margin-top:5px;
+  background:#238636;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+.linkedin { background:#0a66c2; }
+
+footer {
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <div>
+    <h2 id="name"></h2>
+    <p id="title"></p>
+  </div>
+  <div class="status-box">
+    <div class="dot"></div>
+    Available for Hire
+  </div>
+</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#automation">Automation</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="card" id="about-content"></div>
+</section>
+
+<!-- SYSTEM STATUS -->
+<section>
+  <h2>System Status</h2>
+  <div class="grid">
+    <div class="card">🖥️ Virtualization: <span style="color:#3fb950;">Operational</span></div>
+    <div class="card">☁️ Cloud: <span style="color:#3fb950;">Healthy</span></div>
+    <div class="card">⚙️ Automation: <span style="color:#3fb950;">Running</span></div>
+    <div class="card">🔐 Security: <span style="color:#3fb950;">Enforced</span></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div id="experience-container"></div>
+</section>
+
+<section id="automation">
+  <h2>Automation</h2>
+  <div id="automation-container" class="grid"></div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div id="skills-container" class="grid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Get In Touch</h2>
+
+  <div class="contact-grid">
+
+    <div class="contact-box">
+      <h3>📞 Contact</h3>
+
+      <div>
+        <p>Email</p>
+        <b id="email"></b><br>
+        <a id="emailLink" class="btn">Send</a>
+      </div>
+
+      <div>
+        <p>Phone</p>
+        <b id="phone"></b><br>
+        <a id="phoneLink" class="btn">Call</a>
+      </div>
+
+      <p style="color:#3fb950;">🟢 Available Immediately</p>
+      <p>⏱️ Response: < 12 hrs</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>🌐 LinkedIn</h3>
+
+      <div>
+        <b>www.linkedin.com/in/chaithanya-kumar-5bb7a13bb</b><br>
+        <a href="https://www.linkedin.com/in/chaithanya-kumar-5bb7a13bb"
+           target="_blank"
+           class="btn linkedin">
+           Open Profile
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div style="max-width:900px;margin:30px auto;text-align:center;padding:15px;background:#238636;border-radius:10px;">
+🚀 Open to VMware | Cloud | Infra Roles – Immediate Joiner
+</div>
+
+<footer>
+  <p>© 2026 Chaithanya Kumar</p>
+</footer>
+
+<script>
+// LOAD DATA
+fetch('data.json')
+.then(r => r.json())
+.then(data => {
+
+  document.getElementById("name").innerText = data.name;
+  document.getElementById("title").innerText = data.title;
+  document.getElementById("about-content").innerText = data.about;
+
+  document.getElementById("email").innerText = data.email;
+  document.getElementById("phone").innerText = data.phone;
+
+  document.getElementById("emailLink").href = "mailto:" + data.email;
+  document.getElementById("phoneLink").href = "tel:" + data.phone;
+
+  data.experience.forEach(job => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${job.role} - ${job.company}</h3>
+      <p>${job.duration}</p>
+      <ul>${job.points.map(p => `<li>${p}</li>`).join("")}</ul>
+    `;
+    document.getElementById("experience-container").appendChild(div);
+  });
+
+  data.automation.forEach(t => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<b>${t.name}</b><p>${t.description}</p>`;
+    document.getElementById("automation-container").appendChild(div);
+  });
+
+  data.skills.forEach(s => {
+    let div = document.createElement("div");
+    div.className = "badge";
+    div.innerText = s;
+    document.getElementById("skills-container").appendChild(div);
+  });
+
+});
+
+// BACKGROUND
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let nodes=[];
+for(let i=0;i<50;i++){
+  nodes.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5),
+    vy:(Math.random()-0.5)
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  nodes.forEach(n=>{
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,3,0,Math.PI*2);
+    ctx.fillStyle="#58a6ff";
+    ctx.fill();
+
+    nodes.forEach(m=>{
+      let dx=n.x-m.x, dy=n.y-m.y;
+      let dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.beginPath();
+        ctx.moveTo(n.x,n.y);
+        ctx.lineTo(m.x,m.y);
+        ctx.strokeStyle="rgba(88,166,255,0.15)";
+        ctx.stroke();
+      }
+    });
+
+    // packet effect
+    ctx.fillStyle="#3fb950";
+    ctx.fillRect(n.x+2,n.y+2,2,2);
+
+    n.x+=n.vx;
+    n.y+=n.vy;
+
+    if(n.x<0||n.x>canvas.width) n.vx*=-1;
+    if(n.y<0||n.y>canvas.height) n.vy*=-1;
+  });
+
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
