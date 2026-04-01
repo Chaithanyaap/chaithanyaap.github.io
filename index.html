@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaithanya Kumar | Infrastructure Engineer</title>
 
+<!-- ✅ GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WF9P7H6493"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WF9P7H6493');
+</script>
+
+<style>
+body {
+  margin:0;
+  font-family: Consolas, monospace;
+  background:#0d1117;
+  color:#c9d1d9;
+}
+
+.hero-banner {
+  max-width:1000px;
+  margin:20px auto;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#161b22;
+  border-radius:12px;
+}
+
+.dot {
+  width:10px;
+  height:10px;
+  background:#3fb950;
+  border-radius:50%;
+}
+
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+}
+
+nav a {
+  color:#58a6ff;
+  text-decoration:none;
+}
+
+section {
+  max-width:1000px;
+  margin:30px auto;
+  padding:20px;
+  background:#161b22;
+  border-radius:10px;
+}
+
+.card {
+  background:#0d1117;
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
+  border:1px solid #30363d;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+}
+
+.badge {
+  background:#21262d;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+}
+
+.btn {
+  display:inline-block;
+  padding:8px 12px;
+  margin-top:10px;
+  background:#238636;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero-banner">
+  <div>
+    <h2 id="name"></h2>
+    <p id="title"></p>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="dot"></div>
+    Available for Hire
+  </div>
+</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#automation">Automation</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="card" id="about-content"></div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div id="experience-container"></div>
+</section>
+
+<section id="automation">
+  <h2>Automation</h2>
+  <div id="automation-container" class="grid"></div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div id="skills-container" class="grid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Get In Touch</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>📧 Email</h3>
+      <p id="email"></p>
+
+      <h3>📱 Phone</h3>
+      <p id="phone"></p>
+
+      <p style="color:#3fb950;">Available Immediately</p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 LinkedIn</h3>
+      <a href="https://www.linkedin.com/in/chaithanya-kumar-5bb7a13bb"
+         target="_blank"
+         style="color:#58a6ff;">
+         www.linkedin.com/in/chaithanya-kumar-5bb7a13bb
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Chaithanya Kumar</p>
+</footer>
+
+<script>
+// LOAD DATA
+fetch('data.json')
+.then(r => r.json())
+.then(data => {
+
+  document.getElementById("name").innerText = data.name;
+  document.getElementById("title").innerText = data.title;
+  document.getElementById("about-content").innerText = data.about;
+  document.getElementById("email").innerText = data.email;
+  document.getElementById("phone").innerText = data.phone;
+
+  // EXPERIENCE
+  data.experience.forEach(job => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${job.role} - ${job.company}</h3>
+      <p>${job.duration}</p>
+      <ul>${job.points.map(p => `<li>${p}</li>`).join("")}</ul>
+    `;
+    document.getElementById("experience-container").appendChild(div);
+  });
+
+  // AUTOMATION (ALL LINKED TO ISSUES)
+  data.automation.forEach((t, index) => {
+    let div = document.createElement("div");
+    div.className = "card";
+
+    let issueNumber = index + 1;
+
+    div.innerHTML = `
+      <b>${t.name}</b>
+      <p>${t.description}</p>
+      <a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/${issueNumber}"
+         target="_blank"
+         class="btn">
+         📄 View Report
+      </a>
+    `;
+
+    document.getElementById("automation-container").appendChild(div);
+  });
+
+  // SKILLS
+  data.skills.forEach(s => {
+    let div = document.createElement("div");
+    div.className = "badge";
+    div.innerText = s;
+    document.getElementById("skills-container").appendChild(div);
+  });
+
+});
+
+// OPTIONAL: TRACK BUTTON CLICKS
+document.addEventListener("click", function(e){
+  if(e.target.classList.contains("btn")){
+    gtag('event', 'click', {
+      'event_category': 'Automation',
+      'event_label': e.target.innerText
+    });
+  }
+});
+</script>
+
+</body>
+</html>
