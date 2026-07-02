@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chaithanya Kumar | Infrastructure Engineer</title>
-  <meta name="description" content="Chaithanya Kumar - Infrastructure Engineer portfolio and automation showcase." />
+  <meta name="description" content="Chaithanya Kumar | AI Infrastructure Engineer, Automation, and Prompt Engineering portfolio." />
+  <title>Chaithanya Kumar | AI Infrastructure Engineer</title>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WF9P7H6493"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
     gtag('config', 'G-WF9P7H6493');
   </script>
 
   <style>
     :root {
-      --bg: #0b1220;
+      --bg: #060816;
       --bg-soft: rgba(15, 23, 42, 0.72);
-      --panel: rgba(17, 24, 39, 0.92);
-      --panel-2: rgba(15, 23, 42, 0.96);
+      --panel: rgba(10, 15, 28, 0.84);
+      --panel-strong: rgba(17, 24, 39, 0.95);
       --border: rgba(148, 163, 184, 0.14);
-      --text: #e5eefc;
-      --muted: #9fb0c8;
+      --text: #eaf2ff;
+      --muted: #9db0c9;
       --accent: #7c3aed;
       --accent-2: #22c55e;
       --accent-3: #38bdf8;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 16px;
       --radius-sm: 12px;
-      --max: 1120px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
@@ -42,10 +42,10 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), transparent 30%),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 26%),
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 24%),
         radial-gradient(circle at bottom center, rgba(34, 197, 94, 0.10), transparent 30%),
-        linear-gradient(180deg, #050816 0%, var(--bg) 100%);
+        linear-gradient(180deg, #040712 0%, var(--bg) 100%);
       min-height: 100vh;
     }
 
@@ -53,7 +53,7 @@
     img { max-width: 100%; display: block; }
 
     .shell {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
     }
 
@@ -62,7 +62,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(5, 8, 22, 0.55);
+      background: rgba(4, 7, 18, 0.62);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
@@ -83,9 +83,9 @@
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
       font-weight: 800;
@@ -95,20 +95,15 @@
       flex: 0 0 auto;
     }
 
-    .brand-text {
-      min-width: 0;
-    }
-
     .brand-text strong {
       display: block;
-      font-size: 0.98rem;
+      font-size: 1rem;
       line-height: 1.2;
-      letter-spacing: 0.2px;
     }
 
     .brand-text span {
       display: block;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--muted);
       margin-top: 2px;
       white-space: nowrap;
@@ -131,20 +126,18 @@
       transition: 0.2s ease;
     }
 
-    .nav a:hover {
-      color: var(--text);
-    }
+    .nav a:hover { color: var(--text); }
 
     .hero {
-      padding: 34px 0 18px;
+      padding: 32px 0 14px;
     }
 
     .hero-card {
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       background:
-        linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(56, 189, 248, 0.10)),
-        rgba(11, 18, 32, 0.72);
+        linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(56, 189, 248, 0.08)),
+        rgba(11, 18, 32, 0.78);
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
@@ -154,7 +147,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.10), transparent 24%);
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.10), transparent 22%);
       pointer-events: none;
     }
 
@@ -192,17 +185,17 @@
     h1, h2, h3, p { margin: 0; }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.1rem, 4vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
       margin-bottom: 14px;
     }
 
     .hero p.lead {
-      max-width: 68ch;
+      max-width: 70ch;
       color: var(--muted);
       font-size: 1.03rem;
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 22px;
     }
 
@@ -260,9 +253,9 @@
     }
 
     .stat .value {
-      font-size: 1.2rem;
+      font-size: 1.12rem;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .badge-row {
@@ -281,7 +274,7 @@
       font-size: 0.88rem;
     }
 
-    main { padding: 18px 0 46px; }
+    main { padding: 16px 0 48px; }
 
     section {
       margin-top: 22px;
@@ -293,9 +286,7 @@
       overflow: hidden;
     }
 
-    .section-inner {
-      padding: 28px;
-    }
+    .section-inner { padding: 28px; }
 
     .section-head {
       display: flex;
@@ -313,13 +304,13 @@
 
     .section-subtitle {
       color: var(--muted);
-      line-height: 1.6;
-      max-width: 72ch;
+      line-height: 1.65;
+      max-width: 74ch;
     }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 16px;
     }
 
@@ -466,6 +457,26 @@
       font-size: 0.92rem;
     }
 
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+      color: #dbe7fb;
+    }
+
+    .mini-list div {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      line-height: 1.55;
+    }
+
+    .mini-list span {
+      color: var(--accent-2);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
     footer {
       padding: 20px 0 34px;
       color: var(--muted);
@@ -473,9 +484,7 @@
       font-size: 0.92rem;
     }
 
-    .muted {
-      color: var(--muted);
-    }
+    .muted { color: var(--muted); }
 
     @media (max-width: 860px) {
       .hero-inner,
@@ -501,7 +510,7 @@
     }
 
     @media (max-width: 540px) {
-      .shell { width: min(var(--max), calc(100% - 20px)); }
+      .shell { width: min(var(--max), calc(100% - 18px)); }
       .hero { padding-top: 18px; }
       .hero-card, section { border-radius: 22px; }
       .brand-text span { white-space: normal; }
@@ -517,7 +526,7 @@
         <div class="brand-mark">CK</div>
         <div class="brand-text">
           <strong>Chaithanya Kumar</strong>
-          <span>Infrastructure Engineer • Automation • Cloud</span>
+          <span>AI Infrastructure Engineer • Automation • Prompt Engineering</span>
         </div>
       </a>
 
@@ -535,11 +544,11 @@
     <div class="hero-card">
       <div class="hero-inner">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Available for hire</div>
+          <div class="eyebrow"><span class="dot"></span> Available for AI / Infrastructure roles</div>
           <h1 id="name">Chaithanya Kumar</h1>
-          <p class="lead" id="title">Infrastructure Engineer</p>
+          <p class="lead" id="title">AI Infrastructure Engineer</p>
           <p class="lead" id="about-content-preview">
-            Building reliable systems, automating repetitive work, and creating clean infrastructure experiences.
+            I build reliable infrastructure, streamline operations with automation, and use AI to reduce manual work.
           </p>
 
           <div class="cta-row">
@@ -548,25 +557,25 @@
           </div>
 
           <div class="badge-row">
+            <span class="pill">AI-assisted Automation</span>
             <span class="pill">Cloud Infrastructure</span>
-            <span class="pill">Automation</span>
-            <span class="pill">Observability</span>
-            <span class="pill">Scripting</span>
+            <span class="pill">Prompt Engineering</span>
+            <span class="pill">Workflow Design</span>
           </div>
         </div>
 
-        <div class="hero-side" aria-label="Profile highlights">
+        <div class="hero-side">
           <div class="stat">
-            <div class="label">Status</div>
-            <div class="value">Open to opportunities</div>
+            <div class="label">Brand</div>
+            <div class="value">AI-first Infrastructure & Automation</div>
           </div>
           <div class="stat">
-            <div class="label">Focus</div>
-            <div class="value">Infrastructure, tooling, and process automation</div>
+            <div class="label">What I do</div>
+            <div class="value">Build systems, tools, reports, and workflows that save time</div>
           </div>
           <div class="stat">
-            <div class="label">Connect</div>
-            <div class="value">LinkedIn • GitHub • Email</div>
+            <div class="label">Best fit</div>
+            <div class="value">Roles mixing DevOps, automation, and practical AI usage</div>
           </div>
         </div>
       </div>
@@ -579,11 +588,16 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">About</h2>
-            <p class="section-subtitle">A clean snapshot of your profile, written like a modern portfolio rather than a plain resume page.</p>
+            <p class="section-subtitle">This version is tuned to sound like an engineer who uses AI well, not just as a buzzword, but as a workflow advantage.</p>
           </div>
         </div>
         <div class="card">
           <div id="about-content" class="muted"></div>
+          <div class="mini-list" style="margin-top:16px;">
+            <div><span>✓</span><div>Infrastructure engineering with a strong automation mindset</div></div>
+            <div><span>✓</span><div>Uses AI for faster analysis, clearer documentation, and better workflow design</div></div>
+            <div><span>✓</span><div>Comfortable with prompt engineering, scripting, and operational tooling</div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -593,7 +607,7 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">Your role history presented as a polished timeline with clear responsibility and impact.</p>
+            <p class="section-subtitle">Structured as a timeline so recruiters can scan role, duration, and impact quickly.</p>
           </div>
         </div>
         <div id="experience-container" class="timeline"></div>
@@ -604,8 +618,8 @@
       <div class="section-inner">
         <div class="section-head">
           <div>
-            <h2 class="section-title">Automation</h2>
-            <p class="section-subtitle">A grid of reports and automation work, each linked to its corresponding issue for easy navigation.</p>
+            <h2 class="section-title">Automation & AI Work</h2>
+            <p class="section-subtitle">Each card can stay linked to your GitHub issue reports. Great for showing practical work and proof of execution.</p>
           </div>
         </div>
         <div id="automation-container" class="card-grid"></div>
@@ -617,7 +631,7 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Fast-scannable skill chips that work well on desktop and mobile.</p>
+            <p class="section-subtitle">Use this as grouped skill tags. It reads cleaner than a big wall of text.</p>
           </div>
         </div>
         <div id="skills-container" class="skills-wrap"></div>
@@ -629,7 +643,7 @@
         <div class="section-head">
           <div>
             <h2 class="section-title">Get in touch</h2>
-            <p class="section-subtitle">Keep the contact section simple, direct, and easy to act on.</p>
+            <p class="section-subtitle">Simple, direct, and professional.</p>
           </div>
         </div>
 
@@ -645,7 +659,7 @@
               <p id="phone"></p>
             </div>
 
-            <div class="status">Available immediately</div>
+            <div class="status">Open to opportunities</div>
           </div>
 
           <div class="card">
@@ -655,9 +669,10 @@
                 www.linkedin.com/in/chaithanya-kumar-5bb7a13bb
               </a>
             </div>
+
             <div class="contact-line">
-              <div class="label">Portfolio</div>
-              <p class="muted">This page can be extended with project links, certifications, and a downloadable resume button later.</p>
+              <div class="label">Suggested headline</div>
+              <p>AI Infrastructure Engineer | Automation | Prompt Engineering | Cloud</p>
             </div>
           </div>
         </div>
@@ -672,6 +687,15 @@
   </footer>
 
   <script>
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
@@ -686,54 +710,87 @@
         const skillsContainer = document.getElementById('skills-container');
 
         nameEl.innerText = data.name || 'Chaithanya Kumar';
-        titleEl.innerText = data.title || 'Infrastructure Engineer';
-        aboutEl.innerText = data.about || '';
-        aboutPreviewEl.innerText = data.about || 'Building reliable systems, automating repetitive work, and creating clean infrastructure experiences.';
+        titleEl.innerText = data.title || 'AI Infrastructure Engineer';
+        aboutEl.innerText = data.about || 'Infrastructure engineer focused on automation, reliability, and AI-assisted productivity.';
+        aboutPreviewEl.innerText = data.about || 'I build reliable infrastructure, streamline operations with automation, and use AI to reduce manual work.';
         emailEl.innerText = data.email || '';
         phoneEl.innerText = data.phone || '';
 
-        (data.experience || []).forEach(job => {
-          const item = document.createElement('div');
-          item.className = 'timeline-item';
-
-          const points = Array.isArray(job.points) ? job.points : [];
-          item.innerHTML = `
-            <div class="timeline-top">
-              <strong>${job.role || ''}</strong>
-              <span>${job.duration || ''}</span>
-            </div>
-            <p>${job.company || ''}</p>
-            ${points.length ? `<ul>${points.map(p => `<li>${p}</li>`).join('')}</ul>` : ''}
-          `;
-          expContainer.appendChild(item);
-        });
-
-        (data.automation || []).forEach((t, index) => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          const issueNumber = index + 1;
-          card.innerHTML = `
-            <h3>${t.name || 'Automation'}</h3>
-            <div class="meta">Issue #${issueNumber}</div>
-            <p>${t.description || ''}</p>
-            <div class="cta-row" style="margin-top:16px;">
-              <a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/${issueNumber}"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="btn btn-primary">
-                View report
-              </a>
+        const experience = Array.isArray(data.experience) ? data.experience : [];
+        if (!experience.length) {
+          expContainer.innerHTML = `
+            <div class="timeline-item">
+              <div class="timeline-top">
+                <strong>Add your experience from resume.json</strong>
+                <span>Role • Company • Duration</span>
+              </div>
+              <p>Paste your resume data into data.json and this section will render automatically.</p>
             </div>
           `;
-          automationContainer.appendChild(card);
-        });
+        } else {
+          experience.forEach(job => {
+            const item = document.createElement('div');
+            item.className = 'timeline-item';
+            const points = Array.isArray(job.points) ? job.points : [];
+            item.innerHTML = `
+              <div class="timeline-top">
+                <strong>${escapeHtml(job.role || '')}</strong>
+                <span>${escapeHtml(job.duration || '')}</span>
+              </div>
+              <p>${escapeHtml(job.company || '')}</p>
+              ${points.length ? `<ul>${points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul>` : ''}
+            `;
+            expContainer.appendChild(item);
+          });
+        }
 
-        (data.skills || []).forEach(s => {
-          const pill = document.createElement('span');
-          pill.className = 'skill';
-          pill.innerText = s;
-          skillsContainer.appendChild(pill);
-        });
+        const automation = Array.isArray(data.automation) ? data.automation : [];
+        if (!automation.length) {
+          automationContainer.innerHTML = `
+            <div class="card">
+              <h3>Automation reports</h3>
+              <div class="meta">GitHub issue-backed work</div>
+              <p>Link your automation reports here to show real implementation detail and proof of work.</p>
+            </div>
+          `;
+        } else {
+          automation.forEach((t, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const issueNumber = index + 1;
+            card.innerHTML = `
+              <h3>${escapeHtml(t.name || 'Automation')}</h3>
+              <div class="meta">Issue #${issueNumber}</div>
+              <p>${escapeHtml(t.description || '')}</p>
+              <div class="cta-row" style="margin-top:16px;">
+                <a href="https://github.com/Chaithanyaap/chaithanyaap.github.io/issues/${issueNumber}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary">
+                  View report
+                </a>
+              </div>
+            `;
+            automationContainer.appendChild(card);
+          });
+        }
+
+        const skills = Array.isArray(data.skills) ? data.skills : [];
+        if (!skills.length) {
+          ['AI', 'Prompt Engineering', 'Cloud', 'Automation', 'DevOps', 'Python'].forEach(s => {
+            const pill = document.createElement('span');
+            pill.className = 'skill';
+            pill.innerText = s;
+            skillsContainer.appendChild(pill);
+          });
+        } else {
+          skills.forEach(s => {
+            const pill = document.createElement('span');
+            pill.className = 'skill';
+            pill.innerText = s;
+            skillsContainer.appendChild(pill);
+          });
+        }
       })
       .catch(() => {
         document.getElementById('about-content').innerText = 'Unable to load profile data right now.';
